@@ -22,6 +22,7 @@
       background-color: #1a5d2c;
       padding: 1rem;
       border-radius: 0 0 10px 10px;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -55,15 +56,31 @@
       font-size: 1rem;
       color: #444;
     }
+
+    h2 {
+      color: #1a5d2c;
+      font-size: 1.4rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 
 <body>
   <nav>
-    <a href="handyman.html">Handyman</a>
-    <a href="tree.html">Tree Services</a>
-    <a href="pressure.html">Pressure Washing</a>
-    <a href="saas.html">SaaS Tools</a>
+    <a href="handyman.html">🛠 Handyman</a>
+    <a href="tree.html">🌲 Tree Services</a>
+    <a href="pressure.html">💦 Pressure Washing</a>
+    <a href="saas.html">🧠 SaaS Tools</a>
   </nav>
 
   <header>
@@ -71,5 +88,20 @@
     <p><strong>Built for Bend — Expert Labor Now, Smarter Tools Tomorrow.</strong></p>
     <p class="note">Proudly serving all of Bend — from Northwest Crossing to Old Farm District, Boyd Acres, Midtown, and beyond.</p>
   </header>
+
+  <section id="about">
+    <h2>About HandyCrew4You</h2>
+    <p>Honest, affordable services built for Bend residents. Whether it’s fixing a faucet or building a custom app, HandyCrew4You is here to help — with real tools and smarter tech.</p>
+  </section>
+
+  <section id="services-preview">
+    <h2>What We Do</h2>
+    <ul>
+      <li><strong>🛠 Handyman:</strong> Small repairs, installs, patching, furniture & fixture work</li>
+      <li><strong>🌲 Tree Services:</strong> Brush clearing, chainsaw work, limb removal</li>
+      <li><strong>💦 Pressure Washing:</strong> Driveways, decks, siding, mildew removal</li>
+      <li><strong>🧠 SaaS & Tech:</strong> Case-by-case automation, web tools, and integrations</li>
+    </ul>
+  </section>
 </body>
 </html>
