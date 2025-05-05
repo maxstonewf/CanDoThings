@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HandyCrew4You – Bend Home Services</title>
   <style>
     body {
@@ -14,90 +14,62 @@
       margin: auto;
       background-color: #f9f9f9;
     }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #1a5d2c;
+      padding: 1rem;
+      border-radius: 0 0 10px 10px;
+    }
+
+    nav a {
+      color: white;
+      background-color: #2c3e50;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #3c7d44;
+    }
+
     header, section {
       padding: 2rem 0;
       border-bottom: 1px solid #ccc;
     }
+
     header h1 {
       font-size: 2.2rem;
       color: #2c3e50;
       margin-bottom: 0.5rem;
+      text-align: center;
     }
-    header p {
-      font-size: 1.1rem;
+
+    header p, .note {
+      text-align: center;
+      font-size: 1rem;
       color: #444;
-    }
-    h2 {
-      color: #1a5d2c;
-      margin-top: 1.5rem;
-    }
-    ul {
-      margin-top: 0.5rem;
-      padding-left: 1.2rem;
-    }
-    .contact {
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-    a {
-      color: #007acc;
-    }
-    .note {
-      font-style: italic;
-      color: #666;
-      font-size: 0.95rem;
     }
   </style>
 </head>
+
 <body>
+  <nav>
+    <a href="#">Handyman</a>
+    <a href="#">Tree Services</a>
+    <a href="#">Pressure Washing</a>
+    <a href="#">SaaS Tools</a>
+  </nav>
 
   <header>
     <h1>HandyCrew4You</h1>
     <p><strong>Built for Bend — Expert Labor Now, Smarter Tools Tomorrow.</strong></p>
     <p class="note">Proudly serving all of Bend — from Northwest Crossing to Old Farm District, Boyd Acres, Midtown, and beyond.</p>
   </header>
-
-  <section id="services">
-    <h2>Services Offered</h2>
-
-    <h3>Pressure Washing</h3>
-    <ul>
-      <li>Driveways, patios, sidewalks</li>
-      <li>Vinyl siding, decks, fences</li>
-      <li>Moss and mildew removal</li>
-    </ul>
-
-    <h3>Tree & Brush Work</h3>
-    <ul>
-      <li>Overhanging limb removal</li>
-      <li>Small tree and brush clearing</li>
-      <li>Chainsaw work & debris haul-off</li>
-    </ul>
-    <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
-
-    <h3>Carpet Cleaning</h3>
-    <ul>
-      <li>Deep wet-vac extraction</li>
-      <li>Soap & rinse options available</li>
-      <li>Great for move-outs, rentals, small jobs</li>
-    </ul>
-
-    <h3>General Handyman</h3>
-    <ul>
-      <li>Light carpentry & patching</li>
-      <li>Furniture assembly, appliance installs</li>
-      <li>Basic plumbing & fixture swaps</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p class="contact">
-      📧 Email: <a href="mailto:****">****</a><br/>
-      📞 Call/Text: ****<br/>
-    </p>
-    <p>Send a quick message with your project description. Free quotes and flexible scheduling.</p>
-  </section>
-
 </body>
 </html>
