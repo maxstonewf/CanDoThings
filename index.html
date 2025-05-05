@@ -92,6 +92,16 @@
       color: #444;
     }
 
+    .status-blink {
+      color: #800020;
+      font-weight: bold;
+      animation: blink 1s steps(1, start) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
     @media (hover: hover) {
       .dropdown:hover .dropdown-content {
         max-height: 500px;
@@ -132,11 +142,44 @@
     <a href="analystit.html">🧠 AnalystIt</a>
   </nav>
 
+  <div style="text-align: center; margin-top: 1rem;">
+    <button style="background-color: #1a5d2c; color: white; padding: 0.7rem 1.2rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold;">
+      📞 Call Now
+    </button>
+    <p style="margin-top: 0.5rem; color: #444;">In Progress! ***-***-****</p>
+  </div>
+
   <header>
-    <h1>Welcome to HandyCrew4You & AnalystIt</h1>
-    <p><strong>Real-world help and smart software solutions — built by one guy who can do both.</strong></p>
+    <h1>Welcome to HandyCrew4You - Bend Home Services</h1>
+    <p><strong>Your go-to for home fixes, tree trimming, or exterior deep cleaning</strong></p>
     <p class="note">Proudly serving all of Bend — from Northwest Crossing to Old Farm District, Boyd Acres, Midtown, and beyond.</p>
   </header>
+
+  <section id="services">
+    <h2>Services Offered</h2>
+
+    <h3>Pressure Washing</h3>
+    <ul>
+      <li>Driveways, patios, sidewalks</li>
+      <li>Vinyl siding, decks, fences</li>
+      <li>Moss and mildew removal</li>
+    </ul>
+
+    <h3>Tree & Brush Work</h3>
+    <ul>
+      <li>Overhanging limb removal</li>
+      <li>Small tree and brush clearing</li>
+      <li>Chainsaw work & debris haul-off</li>
+    </ul>
+    <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
+
+    <h3>Carpet Cleaning – <span class="status-blink">TBD</span></h3>
+    <ul>
+      <li>Deep wet-vac extraction</li>
+      <li>Soap & rinse options available</li>
+      <li>Great for move-outs, rentals, small jobs</li>
+    </ul>
+  </section>
 
   <script>
     function toggleDropdown() {
