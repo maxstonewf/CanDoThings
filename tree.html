@@ -3,11 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tree Services – HandyCrew4You</title>
+  <title>Tree Services | HandyCrew4You</title>
+
+  <!-- === STYLES === -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #1a5d2c;
+      padding: 1rem;
+      position: relative;
+      border-radius: 0 0 10px 10px;
+    }
+
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    nav a, nav .dropbtn {
+      color: white;
+      background-color: #2c3e50;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav .dropbtn:hover {
+      background-color: #3c7d44;
+    }
+
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background-color: #2c3e50;
+      min-width: 160px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+      border-radius: 0 0 6px 6px;
+      margin-top: 0.5rem;
+      border: 1px solid #1a5d2c;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.8rem 1rem;
+      color: white;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3c7d44;
+    }
+
+    .dropdown-content.show {
+      max-height: 500px;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .note {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    @media (hover: hover) {
+      .dropdown:hover .dropdown-content {
+        max-height: 500px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .dropdown-content {
+        position: static;
+        width: 100%;
+        border: none;
+        margin-top: 0;
+      }
+
+      nav .dropdown, nav a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Tree & Branch Services</h1>
-  <p>Overhanging limb removal, brush clearing, and chainsaw work. Debris haul-off when applicable.</p>
-  <a href="index.html">← Back to Home</a>
+
+  <!-- === NAVIGATION BAR === -->
+  <nav>
+    <div class="dropdown" onclick="toggleDropdown()">
+      <div class="dropbtn">🛠 HandyCrew4You</div>
+      <div class="dropdown-content" id="handyDropdown">
+        <a href="handyman.html">Handyman</a>
+        <a href="tree.html">Tree Services</a>
+        <a href="pressure.html">Pressure Washing</a>
+      </div>
+    </div>
+    <a href="analystit.html">🧠 AnalystIt</a>
+  </nav>
+
+  <!-- === CONTENT WRAPPER START === -->
+  <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+    <!-- === HEADER === -->
+    <header>
+      <h1>Tree & Brush Services</h1>
+      <p><strong>Safe, reliable trimming, small removals, and clean-up work in Bend</strong></p>
+      <p class="note">Efficient chainsaw work and debris haul-off — no high climbs or full removals.</p>
+    </header>
+
+    <!-- === SERVICES LIST === -->
+    <section id="tree-services">
+      <h2>Services Offered</h2>
+      <ul>
+        <li>Overhanging limb removal</li>
+        <li>Brush clearing and haul-away</li>
+        <li>Small tree trimming and felling</li>
+        <li>Chainsaw cuts and sectioning</li>
+        <li>Stump reduction (cut low, not ground)</li>
+        <li>Wildfire danger debris removal</li>
+      </ul>
+    </section>
+
+  </div>
+  <!-- === CONTENT WRAPPER END === -->
+
+  <!-- === DROPDOWN SCRIPT === -->
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById("handyDropdown");
+      menu.classList.toggle("show");
+    }
+
+    document.addEventListener("click", function(event) {
+      const dropdown = document.getElementById("handyDropdown");
+      const trigger = document.querySelector(".dropdown");
+      if (!trigger.contains(event.target)) {
+        dropdown.classList.remove("show");
+      }
+    });
+  </script>
+
+  <!-- === FOOTER === -->
+  <footer style="background-color:#f2f2f2; text-align:center; padding:20px; margin-top:40px;">
+    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
+  </footer>
+
 </body>
 </html>
