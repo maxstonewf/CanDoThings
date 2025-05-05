@@ -44,29 +44,34 @@
     }
 
     .dropdown-content {
-      display: none;
-      position: absolute;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
       background-color: #2c3e50;
       min-width: 160px;
+      position: absolute;
       top: 100%;
       left: 0;
       z-index: 1;
       border-radius: 0 0 6px 6px;
+      margin-top: 0.5rem;
+      border: 1px solid #1a5d2c;
     }
 
     .dropdown-content a {
       display: block;
-      padding: 0.6rem 1rem;
+      padding: 0.8rem 1rem;
       color: white;
       text-decoration: none;
+      width: 100%;
     }
 
     .dropdown-content a:hover {
       background-color: #3c7d44;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
+    .dropdown-content.show {
+      max-height: 500px;
     }
 
     header {
@@ -87,6 +92,12 @@
       color: #444;
     }
 
+    @media (hover: hover) {
+      .dropdown:hover .dropdown-content {
+        max-height: 500px;
+      }
+    }
+
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
@@ -96,6 +107,8 @@
       .dropdown-content {
         position: static;
         width: 100%;
+        border: none;
+        margin-top: 0;
       }
 
       nav .dropdown, nav a {
@@ -108,9 +121,9 @@
 
 <body>
   <nav>
-    <div class="dropdown">
+    <div class="dropdown" onclick="toggleDropdown()">
       <div class="dropbtn">🛠 HandyCrew4You</div>
-      <div class="dropdown-content">
+      <div class="dropdown-content" id="handyDropdown">
         <a href="handyman.html">Handyman</a>
         <a href="tree.html">Tree Services</a>
         <a href="pressure.html">Pressure Washing</a>
@@ -122,7 +135,22 @@
   <header>
     <h1>Welcome to HandyCrew4You & AnalystIt</h1>
     <p><strong>Real-world help and smart software solutions — built by one guy who can do both.</strong></p>
-    <p class="note">Proudly serving Central Oregon and the digital world alike.</p>
+    <p class="note">Proudly serving all of Bend — from Northwest Crossing to Old Farm District, Boyd Acres, Midtown, and beyond.</p>
   </header>
+
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById("handyDropdown");
+      menu.classList.toggle("show");
+    }
+
+    document.addEventListener("click", function(event) {
+      const dropdown = document.getElementById("handyDropdown");
+      const trigger = document.querySelector(".dropdown");
+      if (!trigger.contains(event.target)) {
+        dropdown.classList.remove("show");
+      }
+    });
+  </script>
 </body>
 </html>
