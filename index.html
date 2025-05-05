@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HandyCrew4You – Bend Home Services</title>
+  <title>HandyCrew4You & AnalystIt</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0 1rem;
+      padding: 0;
       line-height: 1.6;
-      max-width: 900px;
-      margin: auto;
       background-color: #f9f9f9;
     }
 
@@ -21,49 +19,72 @@
       gap: 1rem;
       background-color: #1a5d2c;
       padding: 1rem;
+      position: relative;
       border-radius: 0 0 10px 10px;
-      flex-wrap: wrap;
     }
 
-    nav a {
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    nav a, nav .dropbtn {
       color: white;
       background-color: #2c3e50;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
-    nav a:hover {
+    nav a:hover, nav .dropbtn:hover {
       background-color: #3c7d44;
     }
 
-    header, section {
-      padding: 2rem 0;
-      border-bottom: 1px solid #ccc;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #2c3e50;
+      min-width: 160px;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.6rem 1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3c7d44;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
     }
 
     header h1 {
       font-size: 2.2rem;
       color: #2c3e50;
       margin-bottom: 0.5rem;
-      text-align: center;
     }
 
-    header p, .note {
-      text-align: center;
+    .note {
       font-size: 1rem;
       color: #444;
-    }
-
-    h2 {
-      color: #1a5d2c;
-      font-size: 1.4rem;
-    }
-
-    ul {
-      padding-left: 1.5rem;
     }
 
     @media (max-width: 600px) {
@@ -71,37 +92,37 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .dropdown-content {
+        position: static;
+        width: 100%;
+      }
+
+      nav .dropdown, nav a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 
 <body>
   <nav>
-    <a href="handyman.html">🛠 Handyman</a>
-    <a href="tree.html">🌲 Tree Services</a>
-    <a href="pressure.html">💦 Pressure Washing</a>
-    <a href="saas.html">🧠 SaaS Tools</a>
+    <div class="dropdown">
+      <div class="dropbtn">🛠 HandyCrew4You</div>
+      <div class="dropdown-content">
+        <a href="handyman.html">Handyman</a>
+        <a href="tree.html">Tree Services</a>
+        <a href="pressure.html">Pressure Washing</a>
+      </div>
+    </div>
+    <a href="analystit.html">🧠 AnalystIt</a>
   </nav>
 
   <header>
-    <h1>HandyCrew4You</h1>
-    <p><strong>Built for Bend — Expert Labor Now, Smarter Tools Tomorrow.</strong></p>
-    <p class="note">Proudly serving all of Bend — from Northwest Crossing to Old Farm District, Boyd Acres, Midtown, and beyond.</p>
+    <h1>Welcome to HandyCrew4You & AnalystIt</h1>
+    <p><strong>Real-world help and smart software solutions — built by one guy who can do both.</strong></p>
+    <p class="note">Proudly serving Central Oregon and the digital world alike.</p>
   </header>
-
-  <section id="about">
-    <h2>About HandyCrew4You</h2>
-    <p>Honest, affordable services built for Bend residents. Whether it’s fixing a faucet or building a custom app, HandyCrew4You is here to help — with real tools and smarter tech.</p>
-  </section>
-
-  <section id="services-preview">
-    <h2>What We Do</h2>
-    <ul>
-      <li><strong>🛠 Handyman:</strong> Small repairs, installs, patching, furniture & fixture work</li>
-      <li><strong>🌲 Tree Services:</strong> Brush clearing, chainsaw work, limb removal</li>
-      <li><strong>💦 Pressure Washing:</strong> Driveways, decks, siding, mildew removal</li>
-      <li><strong>🧠 SaaS & Tech:</strong> Case-by-case automation, web tools, and integrations</li>
-    </ul>
-  </section>
 </body>
 </html>
