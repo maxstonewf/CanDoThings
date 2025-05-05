@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HandyCrew4You & AnalystIt</title>
+
+  <!-- === STYLES === -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    /* === NAVIGATION === */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: #1a5d2c;
+      padding: 1rem;
+      position: relative;
+      border-radius: 0 0 10px 10px;
+    }
+
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    nav a, nav .dropbtn {
+      color: white;
+      background-color: #2c3e50;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav .dropbtn:hover {
+      background-color: #3c7d44;
+    }
+
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background-color: #2c3e50;
+      min-width: 160px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+      border-radius: 0 0 6px 6px;
+      margin-top: 0.5rem;
+      border: 1px solid #1a5d2c;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.8rem 1rem;
+      color: white;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3c7d44;
+    }
+
+    .dropdown-content.show {
+      max-height: 500px;
+    }
+
+    /* === HEADER & TEXT === */
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .note {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* === STATUS BADGE: BLINKING BURGUNDY === */
+    .status-blink {
+      color: #800020;
+      font-weight: bold;
+      animation: blink 1s steps(1, start) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* === RESPONSIVE NAVIGATION === */
+    @media (hover: hover) {
+      .dropdown:hover .dropdown-content {
+        max-height: 500px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .dropdown-content {
+        position: static;
+        width: 100%;
+        border: none;
+        margin-top: 0;
+      }
+
+      nav .dropdown, nav a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- === NAVIGATION BAR === -->
+  <nav>
+    <div class="dropdown" onclick="toggleDropdown()">
+      <div class="dropbtn">🛠 HandyCrew4You</div>
+      <div class="dropdown-content" id="handyDropdown">
+        <a href="handyman.html">Handyman</a>
+        <a href="tree.html">Tree Services</a>
+        <a href="pressure.html">Pressure Washing</a>
+      </div>
+    </div>
+    <a href="analystit.html">🧠 AnalystIt</a>
+  </nav>
+
+  <!-- === CONTENT WRAPPER START === -->
+  <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+
+    <!-- === CALL TO ACTION BUTTON === -->
+    <div style="text-align: center; margin-top: 1rem;">
+      <button style="background-color: #1a5d2c; color: white; padding: 0.7rem 1.2rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold;">
+        📞 Call Now
+      </button>
+      <p style="margin-top: 0.5rem; color: #444;">In Progress! ***-***-****</p>
+    </div>
+
+    <!-- === HEADER SECTION === -->
+    <header>
+      <h1>Welcome to HandyCrew4You - Bend Home Services</h1>
+      <p><strong>Your go-to for home fixes, tree trimming, or exterior deep cleaning</strong></p>
+      <p class="note">Proudly serving all of Bend — from Northwest Crossing to Old Farm District, Boyd Acres, Midtown, and beyond.</p>
+    </header>
+
+    <!-- === SERVICES SECTION === -->
+    <section id="services">
+      <h2>Services Offered</h2>
+
+      <!-- === HANDYMAN === -->
+      <h3>General Handyman</h3>
+      <ul>
+        <li>Light carpentry & patching</li>
+        <li>Furniture assembly, appliance installs</li>
+        <li>Basic plumbing & fixture swaps</li>
+      </ul>
+
+      <!-- === PRESSURE WASHING === -->
+      <h3>Pressure Washing</h3>
+      <ul>
+        <li>Driveways, patios, sidewalks</li>
+        <li>Vinyl siding, decks, fences</li>
+        <li>Moss and mildew removal</li>
+      </ul>
+
+      <!-- === TREE WORK === -->
+      <h3>Tree & Brush Work</h3>
+      <ul>
+        <li>Overhanging limb removal</li>
+        <li>Small tree and brush clearing</li>
+        <li>Chainsaw work & debris haul-off</li>
+      </ul>
+      <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
+
+      <!-- === CARPET CLEANING === -->
+      <h3>Carpet Cleaning – <span class="status-blink">TBD</span></h3>
+      <ul>
+        <li>Deep wet-vac extraction</li>
+        <li>Soap & rinse options available</li>
+        <li>Great for move-outs, rentals, small jobs</li>
+      </ul>
+    </section>
+
+  </div>
+  <!-- === CONTENT WRAPPER END === -->
+
+  <!-- === DROPDOWN SCRIPT === -->
+  <script>
+    function toggleDropdown() {
+      const menu = document.getElementById("handyDropdown");
+      menu.classList.toggle("show");
+    }
+
+    document.addEventListener("click", function(event) {
+      const dropdown = document.getElementById("handyDropdown");
+      const trigger = document.querySelector(".dropdown");
+      if (!trigger.contains(event.target)) {
+        dropdown.classList.remove("show");
+      }
+    });
+  </script>
+
+  <!-- === FOOTER === -->
+  <footer style="background-color:#f2f2f2; text-align:center; padding:20px; margin-top:40px;">
+    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
+  </footer>
+
+</body>
+</html>
