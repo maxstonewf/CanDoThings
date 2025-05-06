@@ -117,13 +117,15 @@
     <h2>Work With Me</h2>
     <p>Freelance, retainer, or one-off projects — tailored for speed and clarity. Start simple. Scale smart.</p>
 
-    <div class="cta">
-      <a href="tel:5419998008" rel="nofollow" aria-label="Call 541 999 8008">
-        📞 Call <span>541</span><span style="display:none;">xxx</span><span>-999-8008</span>
-      </a>
-      <a href="mailto:handycrew4you.johnson@gmail.com">📧 Email Me</a>
-      <a href="home.html">← Back to Home</a>
-    </div>
+<div id="contact-section"></div>
+<script>
+  fetch('contact.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('contact-section').innerHTML = data;
+    });
+</script>
+
   </main>
 
   <footer class="footer">
