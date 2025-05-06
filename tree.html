@@ -104,7 +104,13 @@
 
 <!-- === CALL TO ACTION (INJECTED) === -->
 <div id="contact-section"></div>
-
+<script>
+  fetch('contact.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('contact-section').innerHTML = data;
+    });
+</script>
 </div> <!-- This closes your main layout container -->
 
   <!-- === FOOTER === -->
