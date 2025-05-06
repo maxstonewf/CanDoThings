@@ -1,55 +1,39 @@
-<!-- === CALL TO ACTION BUTTON === -->
-<div id="contact-wrapper" style="text-align: center; margin-top: 1rem;">
+<div id="contact-section"></div>
 <script>
-  <a href="tel:5413204302">
-    <button id="call-btn" style="padding: 0.7rem 1.2rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer;">
-      📞 Call Now
-    </button>
-  </a>
-  <a href="home.html">
-    <button id="home-btn" style="padding: 0.7rem 1.2rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold; margin-left: 0.5rem; cursor: pointer;">
-      🏠 Home
-    </button>
-  </a>
-  <p id="contact-text" style="margin-top: 0.5rem; font-size: 1rem;">
-    Quotes available 7-days a week.<br />
-    Call <a id="contact-link" href="tel:5413204302" rel="nofollow" aria-label="Call 541 320 4302" style="text-decoration: none; font-weight: bold;">
-      <span>541</span><span style="display:none;">xxx</span><span>-320-4302</span>
-    </a>
-    or email
-    <a id="email-link" href="mailto:handycrew4you.johnson@gmail.com" style="text-decoration: none; font-weight: bold;">
-      handycrew4you.johnson@gmail.com
-    </a>
-  </p>
-</div>
+  fetch('contact.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('contact-section').innerHTML = html;
 
-  const isDarkPage = window.location.pathname.includes("analystit");
+      // === THEME ADJUSTMENT ===
+      const isDarkPage = window.location.pathname.includes("analystit");
 
-  const callBtn = document.getElementById("call-btn");
-  const homeBtn = document.getElementById("home-btn");
-  const contactLink = document.getElementById("contact-link");
-  const emailLink = document.getElementById("email-link");
-  const contactText = document.getElementById("contact-text");
+      const callBtn = document.getElementById("call-btn");
+      const homeBtn = document.getElementById("home-btn");
+      const contactLink = document.getElementById("contact-link");
+      const emailLink = document.getElementById("email-link");
+      const contactText = document.getElementById("contact-text");
 
-  if (isDarkPage) {
-    callBtn.style.backgroundColor = "#00b7ff";
-    callBtn.style.color = "#0f1117";
+      if (isDarkPage) {
+        callBtn.style.backgroundColor = "#00b7ff";
+        callBtn.style.color = "#0f1117";
 
-    homeBtn.style.backgroundColor = "#1a5d2c";
-    homeBtn.style.color = "white";
+        homeBtn.style.backgroundColor = "#1a5d2c";
+        homeBtn.style.color = "white";
 
-    contactLink.style.color = "#00b7ff";
-    emailLink.style.color = "#00b7ff";
-    contactText.style.color = "#ccc";
-  } else {
-    callBtn.style.backgroundColor = "#1a5d2c";
-    callBtn.style.color = "white";
+        contactLink.style.color = "#00b7ff";
+        emailLink.style.color = "#00b7ff";
+        contactText.style.color = "#ccc";
+      } else {
+        callBtn.style.backgroundColor = "#1a5d2c";
+        callBtn.style.color = "white";
 
-    homeBtn.style.backgroundColor = "#1a5d2c";
-    homeBtn.style.color = "white";
+        homeBtn.style.backgroundColor = "#1a5d2c";
+        homeBtn.style.color = "white";
 
-    contactLink.style.color = "#1a5d2c";
-    emailLink.style.color = "#1a5d2c";
-    contactText.style.color = "#444";
-  }
+        contactLink.style.color = "#1a5d2c";
+        emailLink.style.color = "#1a5d2c";
+        contactText.style.color = "#444";
+      }
+    });
 </script>
