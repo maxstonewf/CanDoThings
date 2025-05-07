@@ -150,31 +150,31 @@
       We’ll help you figure out what level of recurring care makes sense for your home or rental.
     </p>
   </section>
-</body>
-<!-- === CONTACT REMINDER === -->
-<section class="service-list">
-  <h2>Need Help?</h2>
-  <p>Reach out via the homepage <a href="home.html">here</a> or call directly. Let’s clear it up safely and cleanly.</p>
-</section>
 
-<!-- === VISUAL BREAK === -->
-<hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
-    
-<!-- === CALL TO ACTION (INJECTED) === -->
-<div id="contact-section"></div>
-<script>
-  fetch('contact.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('contact-section').innerHTML = data;
-    });
-</script>
-</div> <!-- This closes your main layout container -->
-
-  <!-- === FOOTER === -->
-  <footer>
-    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
-  </footer>
+  <!-- === CONTACT REMINDER === -->
+  <section class="service-list">
+    <h2>Need Help?</h2>
+    <p>Reach out via the homepage <a href="home.html">here</a> or call directly. Let’s clear it up safely and cleanly.</p>
+  </section>
+  
+  <!-- === VISUAL BREAK === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+      
+  <!-- === CALL TO ACTION (INJECTED) === -->
+  <div id="contact-section"></div>
+  <script>
+    fetch('contact.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('contact-section').innerHTML = data;
+      });
+  </script>
+  </div> <!-- This closes your main layout container -->
+  
+    <!-- === FOOTER === -->
+    <footer>
+      &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
+    </footer>
 
 </body>
 </html>
