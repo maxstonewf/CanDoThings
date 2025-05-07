@@ -149,14 +149,15 @@
 
 <!-- === NAVIGATION BAR === -->
 <nav>
-  <div class="dropdown" onclick="toggleDropdown()">
-    <div class="dropbtn">🛠 Services Menu  </div>
-    <div class="dropdown-content" id="handyDropdown">
-      <a href="handyman.html">🛠 Handyman</a>
-      <a href="tree.html">🌲 Tree Services</a>
+  <div class="dropdown">
+    <button class="dropbtn">Services</button>
+    <div class="dropdown-content">
+      <a href="maintenance.html">🪜 Maintenance</a>
       <a href="pressure.html">💦 Pressure Washing</a>
-      <a href="analystit.html">🧠 AnalystIt</a>
-    </div>
+      <a href="tree.html">🌳 Tree & Brush Work</a>
+      <a href="handyman.html">🛠️ Handyman</a>
+      <a href="carpet.html">🧼 Carpet Cleaning</a>
+      <a href="analystit.html">🧠 Consulting/SaaS</a>
     </div>
   </div>
 </nav>
@@ -173,52 +174,71 @@
       <p class="note">Serving Northwest Crossing, Old Farm District, Boyd Acres, Midtown, and surrounding areas.</p>
     </header>
 
-    <!-- === SERVICES SECTION === -->
-    <section id="services">
-      <h2>Services Offered</h2>
+<!-- === SERVICES SECTION === -->
+<section id="services">
+  <h2>Services Offered</h2>
 
-      <!-- === HANDYMAN === -->
-      <h3>General Handyman</h3>
-      <ul>
-        <li>Light carpentry & patching</li>
-        <li>Furniture assembly, appliance installs</li>
-        <li>Basic plumbing & fixture swaps</li>
-      </ul>
+  <!-- === GENERAL MAINTENANCE === -->
+  <h3>General Maintenance</h3>
+  <ul>
+    <li>Weed wacking and yard upkeep</li>
+    <li>Gutter clearing and minor exterior cleanup</li>
+    <li>Recurring monthly or seasonal service packages</li>
+  </ul>
 
-      <!-- === PRESSURE WASHING === -->
-      <h3>Pressure Washing</h3>
-      <ul>
-        <li>Driveways, patios, sidewalks</li>
-        <li>Vinyl siding, decks, fences</li>
-        <li>Moss and mildew removal</li>
-      </ul>
+  <!-- === PRESSURE WASHING === -->
+  <h3>Pressure Washing</h3>
+  <ul>
+    <li>Driveways, patios, sidewalks</li>
+    <li>Vinyl siding, decks, fences</li>
+    <li>Moss and mildew removal</li>
+  </ul>
 
-      <!-- === TREE WORK === -->
-      <h3>Tree & Brush Work</h3>
-      <ul>
-        <li>Overhanging limb removal</li>
-        <li>Small tree and brush clearing</li>
-        <li>Chainsaw work & debris haul-off</li>
-      </ul>
-      <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
+  <!-- === TREE WORK === -->
+  <h3>Tree & Brush Work</h3>
+  <ul>
+    <li>Overhanging limb removal</li>
+    <li>Small tree and brush clearing</li>
+    <li>Chainsaw work & debris haul-off</li>
+  </ul>
+  <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
 
-      <!-- === CARPET CLEANING === -->
-      <h3>Carpet Cleaning – <span class="status-blink">TBD</span></h3>
-      <ul>
-        <li>Deep wet-vac extraction</li>
-        <li>Soap & rinse options available</li>
-        <li>Great for move-outs, rentals, small jobs</li>
-      </ul>
-    </section>
+  <!-- === HANDYMAN === -->
+  <h3>General Handyman</h3>
+  <ul>
+    <li>Light carpentry & patching</li>
+    <li>Furniture assembly, appliance installs</li>
+    <li>Basic plumbing & fixture swaps</li>
+  </ul>
+
+  <!-- === CARPET CLEANING === -->
+  <h3>Carpet Cleaning – <span class="status-blink">TBD</span></h3>
+  <ul>
+    <li>Deep wet-vac extraction</li>
+    <li>Soap & rinse options available</li>
+    <li>Great for move-outs, rentals, small jobs</li>
+  </ul>
+</section>
+
 
 <!-- === VISUAL BREAK === -->
 <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
     
 <!-- === FAQ SECTION === -->
+<!-- === FAQ SECTION === -->
 <section style="max-width: 800px; margin: 3rem auto; padding: 0 1rem;">
   <h2 style="text-align: center; font-size: 2rem; color: #1a5d2c; margin-bottom: 2rem;">
     Frequently Asked Questions
   </h2>
+
+  <details style="margin-bottom: 1.5rem;">
+    <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">🧹 Do you offer general maintenance contracts?</summary>
+    <p style="margin-top: 0.5rem;">
+      Yes — we offer flexible maintenance contracts for recurring needs like weed wacking, gutter cleaning, pressure washing, 
+      seasonal cleanups, and more. You can choose from monthly or seasonal packages depending on the property and your priorities.
+      These plans are popular with rental owners, snowbirds, and busy homeowners.
+    </p>
+  </details>
 
   <details style="margin-bottom: 1.5rem;">
     <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">💲 How much do you charge?</summary>
@@ -256,6 +276,7 @@
     </p>
   </details>
 </section>
+
 
 
     
