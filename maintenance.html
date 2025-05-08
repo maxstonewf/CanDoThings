@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🪜 Maintenance | HandyCrew4You</title>
-  <link rel="stylesheet" href="styles.css" /> <!-- Optional if you're using an external CSS file -->
 
   <style>
     body {
@@ -18,7 +17,6 @@
     nav {
       display: flex;
       justify-content: center;
-      gap: 1rem;
       background-color: #1a5d2c;
       padding: 1rem;
       position: relative;
@@ -50,16 +48,13 @@
     .dropdown-content {
       display: none;
       position: absolute;
+      top: 100%;
+      left: 0;
       background-color: #2c3e50;
       border: 1px solid #1a5d2c;
       border-radius: 0 0 6px 6px;
       min-width: 160px;
       z-index: 1;
-      margin-top: 0.5rem;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
     }
 
     .dropdown-content a {
@@ -102,15 +97,50 @@
       font-size: 1.5rem;
       margin-top: 2rem;
     }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 2rem 1rem;
+      border-top: 1px solid #ccc;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .dropdown-content {
+        position: static;
+        width: 100%;
+        border: none;
+      }
+
+      nav .dropdown,
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
   </style>
 </head>
 
 <body>
   <!-- === NAVIGATION === -->
   <nav>
-    <div class="dropdown">
+    <div class="dropdown" onclick="toggleDropdown()" onmouseleave="closeDropdown()">
       <button class="dropbtn">Services</button>
-      <div class="dropdown-content">
+      <div id="dropdown-content" class="dropdown-content">
         <a href="maintenance.html">🪜 Maintenance</a>
         <a href="pressure.html">💦 Pressure Washing</a>
         <a href="tree.html">🌳 Tree & Brush Work</a>
@@ -170,12 +200,31 @@
         document.getElementById('contact-section').innerHTML = data;
       });
   </script>
-  </div> <!-- This closes your main layout container -->
-  
-    <!-- === FOOTER === -->
-    <footer>
-      &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
-    </footer>
 
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
+  </footer>
+
+  <!-- === JS DROPDOWN FIX === -->
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown-content");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function closeDropdown() {
+      if (window.innerWidth > 600) {
+        document.getElementById("dropdown-content").style.display = "none";
+      }
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById("dropdown-content");
+      if (!event.target.closest('.dropdown')) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
