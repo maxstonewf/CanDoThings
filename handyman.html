@@ -173,4 +173,56 @@
     <section class="service-list">
       <h2>Rates & Scheduling</h2>
       <p>
-        Hourly
+        Hourly or flat rates available depending on the scope.  
+        Quick estimates provided over email with optional photo references.
+      </p>
+      <p><strong>Availability:</strong> Evenings, weekends, flexible slots by request.</p>
+    </section>
+
+    <!-- === CONTACT REMINDER === -->
+    <section class="service-list">
+      <h2>Need Help?</h2>
+      <p>Reach out via the homepage <a href="home.html">here</a> or text directly. Let’s get it fixed right the first time.</p>
+    </section>
+  </div>
+
+  <!-- === VISUAL BREAK === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+
+  <!-- === CALL TO ACTION (INJECTED) === -->
+  <div id="contact-section"></div>
+  <script>
+    fetch('contact.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('contact-section').innerHTML = data;
+      });
+  </script>
+
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
+  </footer>
+
+  <!-- === JS DROPDOWN FIX === -->
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown-content");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function closeDropdown() {
+      if (window.innerWidth > 600) {
+        document.getElementById("dropdown-content").style.display = "none";
+      }
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById("dropdown-content");
+      if (!event.target.closest('.dropdown')) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
