@@ -152,13 +152,12 @@
 
   <!-- === HEADER === -->
   <header>
-    <h1>Pressure Washing Services</h1>
+    <h1>💦 Pressure Washing Services</h1>
     <p>Exterior surface cleaning for residential properties across Bend</p>
   </header>
 
   <!-- === CONTENT SECTION === -->
   <div class="content">
-
     <!-- === SERVICE LIST === -->
     <section class="service-list">
       <h2>Scope of Services</h2>
@@ -185,28 +184,49 @@
     <section class="service-list">
       <h2>Contact</h2>
       <p>
-        To request a quote or book a service, please visit the <a href="home.html">homepage</a> or send a direct message. We’re committed to delivering high-quality results with minimal disruption.
+        To request a quote or book a service, please visit the <a href="home.html">homepage</a> or send a direct message.
+        We’re committed to delivering high-quality results with minimal disruption.
       </p>
     </section>
   </div>
-  
-<!-- === VISUAL BREAK === -->
-<hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
 
-<!-- === CALL TO ACTION (INJECTED) === -->
-<div id="contact-section"></div>
-<script>
-  fetch('contact.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('contact-section').innerHTML = data;
-    });
-</script>
+  <!-- === VISUAL BREAK === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+
+  <!-- === CALL TO ACTION (INJECTED) === -->
+  <div id="contact-section"></div>
+  <script>
+    fetch('contact.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('contact-section').innerHTML = data;
+      });
+  </script>
 
   <!-- === FOOTER === -->
   <footer>
     &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
   </footer>
 
+  <!-- === JS DROPDOWN FIX === -->
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdown-content");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function closeDropdown() {
+      if (window.innerWidth > 600) {
+        document.getElementById("dropdown-content").style.display = "none";
+      }
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById("dropdown-content");
+      if (!event.target.closest('.dropdown')) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
