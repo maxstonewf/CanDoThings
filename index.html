@@ -4,35 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HandyCrew4You.com</title>
-  <link rel="icon" type="image/png" href="CanDoThings/favIcon.png" />
+  <link rel="icon" type="image/png" href="favIcon.png" />
 
-  <!-- === STYLES === -->
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f0f4f3;
+      color: #2c3e50;
       line-height: 1.6;
-      background-color: #f9f9f9;
     }
 
-    /* === NAVIGATION === */
     nav {
       display: flex;
       justify-content: center;
-      gap: 1rem;
       background-color: #1a5d2c;
       padding: 1rem;
       position: relative;
       border-radius: 0 0 10px 10px;
     }
 
-    nav .dropdown {
+    .dropdown {
       position: relative;
       display: inline-block;
     }
 
-    nav a, nav .dropbtn {
+    nav a,
+    .dropbtn {
       color: white;
       background-color: #2c3e50;
       padding: 0.6rem 1.2rem;
@@ -43,22 +42,21 @@
       cursor: pointer;
     }
 
-    nav a:hover, nav .dropbtn:hover {
+    nav a:hover,
+    .dropbtn:hover {
       background-color: #3c7d44;
     }
 
     .dropdown-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      background-color: #2c3e50;
-      min-width: 160px;
+      display: none;
       position: absolute;
       top: 100%;
       left: 0;
-      z-index: 1;
-      border-radius: 0 0 6px 6px;
+      background-color: #2c3e50;
       border: 1px solid #1a5d2c;
+      border-radius: 0 0 6px 6px;
+      min-width: 160px;
+      z-index: 1;
     }
 
     .dropdown-content a {
@@ -66,18 +64,13 @@
       padding: 0.8rem 1rem;
       color: white;
       text-decoration: none;
-      width: 100%;
+      white-space: nowrap;
     }
 
     .dropdown-content a:hover {
       background-color: #3c7d44;
     }
 
-    .dropdown-content.show {
-      max-height: 500px;
-    }
-
-    /* === HEADER & TEXT === */
     header {
       text-align: center;
       padding: 2rem 1rem;
@@ -96,22 +89,12 @@
       color: #444;
     }
 
-    /* === STATUS BADGE: BLINKING BURGUNDY === */
-    .status-blink {
-      color: #800020;
-      font-weight: bold;
-      animation: blink 1s steps(1, start) infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    /* === RESPONSIVE NAVIGATION === */
-    @media (hover: hover) {
-      .dropdown:hover .dropdown-content {
-        max-height: 500px;
-      }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      padding: 2rem 1rem;
+      border-top: 1px solid #ccc;
     }
 
     @media (max-width: 600px) {
@@ -124,24 +107,18 @@
         position: static;
         width: 100%;
         border: none;
-        margin-top: 0;
       }
 
-      nav .dropdown, nav a {
+      nav .dropdown,
+      nav a {
         width: 100%;
         text-align: center;
       }
-    }
-      /* === DROPDOWN AUTO-SIZE === */
-  .dropdown-content {
-    width: max-content;
-    min-width: 160px;
-  }
 
-  /* === DROPDOWN NO-WRAP ITEMS === */
-  .dropdown-content a {
-    white-space: nowrap;
-  }
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
   </style>
 </head>
 
@@ -151,7 +128,7 @@
 <nav>
   <div class="dropdown" onclick="toggleDropdown()" onmouseleave="closeDropdown()">
     <button class="dropbtn">Services</button>
-    <div class="dropdown-content" id="handyDropdown">
+    <div id="dropdown-content" class="dropdown-content">
       <a href="maintenance.html">🪜 Maintenance</a>
       <a href="pressure.html">💦 Pressure Washing</a>
       <a href="tree.html">🌳 Tree & Brush Work</a>
@@ -162,177 +139,148 @@
   </div>
 </nav>
 
+<!-- === CONTENT WRAPPER START === -->
+<div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
 
-  <!-- === CONTENT WRAPPER START === -->
-  <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+  <!-- === HEADER SECTION === -->
+  <header>
+    <h1>Welcome to HandyCrew4You – Bend Home Services</h1>
+    <p><strong>Reliable handyman work, tree trimming, and exterior cleaning — done right the first time</strong></p>
+    <p class="note">Serving Northwest Crossing, Old Farm District, Boyd Acres, Midtown, and surrounding areas.</p>
+  </header>
 
+  <!-- === SERVICES SECTION === -->
+  <section id="services">
+    <h2>Services Offered</h2>
 
-    <!-- === HEADER SECTION === -->
-    <header>
-      <h1>Welcome to HandyCrew4You – Bend Home Services</h1>
-      <p><strong>Reliable handyman work, tree trimming, and exterior cleaning — done right the first time</strong></p>
-      <p class="note">Serving Northwest Crossing, Old Farm District, Boyd Acres, Midtown, and surrounding areas.</p>
-    </header>
-
-<!-- === SERVICES SECTION === -->
-<section id="services">
-  <h2>Services Offered</h2>
-
-  <!-- === GENERAL MAINTENANCE === -->
-  <h3>General Maintenance</h3>
-  <ul>
-    <li>Weed wacking and yard upkeep</li>
-    <li>Gutter clearing and minor exterior cleanup</li>
-    <li>Recurring monthly or seasonal service packages</li>
-  </ul>
-
-  <!-- === PRESSURE WASHING === -->
-  <h3>Pressure Washing</h3>
-  <ul>
-    <li>Driveways, patios, sidewalks</li>
-    <li>Vinyl siding, decks, fences</li>
-    <li>Moss and mildew removal</li>
-  </ul>
-
-  <!-- === TREE WORK === -->
-  <h3>Tree & Brush Work</h3>
-  <ul>
-    <li>Overhanging limb removal</li>
-    <li>Small tree and brush clearing</li>
-    <li>Chainsaw work & debris haul-off</li>
-  </ul>
-  <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
-
-  <!-- === HANDYMAN === -->
-  <h3>General Handyman</h3>
-  <ul>
-    <li>Light carpentry & patching</li>
-    <li>Furniture assembly, appliance installs</li>
-    <li>Basic plumbing & fixture swaps</li>
-  </ul>
-
-  <!-- === CARPET CLEANING === -->
-  <h3>Carpet Cleaning – <span class="status-blink">TBD</span></h3>
-  <ul>
-    <li>Deep wet-vac extraction</li>
-    <li>Soap & rinse options available</li>
-    <li>Great for move-outs, rentals, small jobs</li>
-  </ul>
-</section>
-
-
-<!-- === VISUAL BREAK === -->
-<hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
-    
-<!-- === FAQ SECTION === -->
-<!-- === FAQ SECTION === -->
-<section style="max-width: 800px; margin: 3rem auto; padding: 0 1rem;">
-  <h2 style="text-align: center; font-size: 2rem; color: #1a5d2c; margin-bottom: 2rem;">
-    Frequently Asked Questions
-  </h2>
-
-  <details style="margin-bottom: 1.5rem;">
-    <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">🧹 Do you offer general maintenance contracts?</summary>
-    <p style="margin-top: 0.5rem;">
-      Yes — we offer flexible maintenance contracts for recurring needs like weed wacking, gutter cleaning, pressure washing, 
-      seasonal cleanups, and more. You can choose from monthly or seasonal packages depending on the property and your priorities.
-      These plans are popular with rental owners, snowbirds, and busy homeowners.
-    </p>
-  </details>
-
-<details style="margin-bottom: 1.5rem;">
-  <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">💲 How much do you charge?</summary>
-  <div style="margin-top: 0.5rem;">
-    <p>Rates vary by service type, agreement period, and scope. Here's what clients can expect for hourly jobs:</p>
-    <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
-      <li><strong>Exterior maintenance:</strong> $50/hour – includes weed-wacking, cobweb removal, gutter checks, etc.</li>
-      <li><strong>Handyman services:</strong> $75/hour</li>
-      <li><strong>Tree & brush work:</strong> $75–100/hour</li>
-      <li><strong>Pressure washing:</strong> Flat-rate based on surface area/type</li>
+    <h3>General Maintenance</h3>
+    <ul>
+      <li>Weed wacking and yard upkeep</li>
+      <li>Gutter clearing and minor exterior cleanup</li>
+      <li>Recurring monthly or seasonal service packages</li>
     </ul>
-    <p>Quotes are always confirmed up front.</p>
-  </div>
-</details>
 
+    <h3>Pressure Washing</h3>
+    <ul>
+      <li>Driveways, patios, sidewalks</li>
+      <li>Vinyl siding, decks, fences</li>
+      <li>Moss and mildew removal</li>
+    </ul>
 
-  <details style="margin-bottom: 1.5rem;">
-    <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">🔁 Do you offer recurring or ongoing maintenance?</summary>
-    <p style="margin-top: 0.5rem;">
-      Yes — we welcome long-term relationships. Maintenance packages, seasonal cleanups, or retainer-based work 
-      can be arranged on a case-by-case basis. Just let us know what you're looking for.
-    </p>
-  </details>
+    <h3>Tree & Brush Work</h3>
+    <ul>
+      <li>Overhanging limb removal</li>
+      <li>Small tree and brush clearing</li>
+      <li>Chainsaw work & debris haul-off</li>
+    </ul>
+    <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
 
-  <details style="margin-bottom: 1.5rem;">
-    <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">📍 What areas do you service?</summary>
-    <p style="margin-top: 0.5rem;">
-      We serve Bend, Oregon — including Northwest Crossing, Midtown, Boyd Acres, and surrounding areas.
-    </p>
-  </details>
+    <h3>General Handyman</h3>
+    <ul>
+      <li>Light carpentry & patching</li>
+      <li>Furniture assembly, appliance installs</li>
+      <li>Basic plumbing & fixture swaps</li>
+    </ul>
 
-  <details style="margin-bottom: 1.5rem;">
-    <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">🛡️ Are you licensed and insured?</summary>
-    <p style="margin-top: 0.5rem;">
-      HandyCrew4You is not currently insured — it's a one-man crew. I only take on projects within my skillset,
-      and we clarify the quote or bid upfront. Clients sign a simple liability waiver before work begins.
-    </p>
-  </details>
-</section>
+    <h3>Carpet Cleaning – <span style="color: #800020; font-weight: bold; animation: blink 1s steps(1, start) infinite;">TBD</span></h3>
+    <ul>
+      <li>Deep wet-vac extraction</li>
+      <li>Soap & rinse options available</li>
+      <li>Great for move-outs, rentals, small jobs</li>
+    </ul>
+  </section>
 
+  <!-- === FAQ SECTION === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+  <section style="max-width: 800px; margin: 3rem auto; padding: 0 1rem;">
+    <h2 style="text-align: center; font-size: 2rem; color: #1a5d2c; margin-bottom: 2rem;">Frequently Asked Questions</h2>
 
+    <details style="margin-bottom: 1.5rem;">
+      <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">🧹 Do you offer general maintenance contracts?</summary>
+      <p style="margin-top: 0.5rem;">
+        Yes — we offer flexible maintenance contracts for recurring needs like weed wacking, gutter cleaning, pressure washing, 
+        seasonal cleanups, and more.
+      </p>
+    </details>
 
-    
-<!-- === VISUAL BREAK === -->
-<hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+    <details style="margin-bottom: 1.5rem;">
+      <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">💲 How much do you charge?</summary>
+      <div style="margin-top: 0.5rem;">
+        <p>Rates vary by service type and scope. Most clients can expect:</p>
+        <ul style="margin-top: 0.5rem; padding-left: 1.25rem;">
+          <li><strong>Exterior maintenance:</strong> $50/hour</li>
+          <li><strong>Handyman services:</strong> $75/hour</li>
+          <li><strong>Tree & brush work:</strong> $75–100/hour</li>
+          <li><strong>Pressure washing:</strong> Flat-rate based on surface area</li>
+        </ul>
+      </div>
+    </details>
 
-    
-    <!-- === CALL TO ACTION BUTTON === -->
-<div style="text-align: center; margin-top: 1rem;">
-  <a href="tel:5413204302">
-    <button style="background-color: #1a5d2c; color: white; padding: 0.7rem 1.2rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold;">
-      📞 Call Now
-    </button>
-  </a>
-  <p style="margin-top: 0.5rem; color: #444;">
-    Quotes available 7-days a week.<br />
-    Call <a href="tel:5413204302" rel="nofollow" aria-label="Call 541 320 4302">
-      <span>541</span><span style="display:none;">xxx</span><span>-320-4302</span>
+    <details style="margin-bottom: 1.5rem;">
+      <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">🔁 Do you offer ongoing services?</summary>
+      <p style="margin-top: 0.5rem;">
+        Yes — long-term client relationships are welcome. Maintenance packages and seasonal work can be tailored to your schedule.
+      </p>
+    </details>
+
+    <details style="margin-bottom: 1.5rem;">
+      <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">📍 What areas do you service?</summary>
+      <p style="margin-top: 0.5rem;">
+        We serve Bend, Oregon — including Northwest Crossing, Midtown, Boyd Acres, and surrounding neighborhoods.
+      </p>
+    </details>
+
+    <details style="margin-bottom: 1.5rem;">
+      <summary style="font-weight: bold; font-size: 1.1rem; cursor: pointer;">🛡️ Are you licensed and insured?</summary>
+      <p style="margin-top: 0.5rem;">
+        HandyCrew4You is not currently insured. I only take on projects within my skillset, and we agree on scope and sign waivers upfront.
+      </p>
+    </details>
+  </section>
+
+  <!-- === CALL TO ACTION === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+  <div style="text-align: center; margin-top: 1rem;">
+    <a href="tel:5413204302">
+      <button style="background-color: #1a5d2c; color: white; padding: 0.7rem 1.2rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold;">
+        📞 Call Now
+      </button>
     </a>
-    or email <a href="mailto:handycrew4you.johnson@gmail.com">handycrew4you.johnson@gmail.com</a>
-  </p>
+    <p style="margin-top: 0.5rem; color: #444;">
+      Quotes available 7-days a week.<br />
+      Call <a href="tel:5413204302" rel="nofollow">541-320-4302</a> or email  
+      <a href="mailto:handycrew4you.johnson@gmail.com">handycrew4you.johnson@gmail.com</a>
+    </p>
+  </div>
 
 </div>
+<!-- === END CONTENT WRAPPER === -->
 
-  </div>
-  <!-- === CONTENT WRAPPER END === -->
+<!-- === FOOTER === -->
+<footer>
+  &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
+</footer>
 
-  <!-- === DROPDOWN SCRIPT === -->
+<!-- === JS DROPDOWN === -->
 <script>
   function toggleDropdown() {
-    const menu = document.getElementById("handyDropdown");
-    menu.style.maxHeight = menu.style.maxHeight === "500px" ? "0" : "500px";
+    const dropdown = document.getElementById("dropdown-content");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
   }
 
   function closeDropdown() {
     if (window.innerWidth > 600) {
-      document.getElementById("handyDropdown").style.maxHeight = "0";
+      document.getElementById("dropdown-content").style.display = "none";
     }
   }
 
-  document.addEventListener("click", function(event) {
-    const dropdown = document.getElementById("handyDropdown");
-    const trigger = document.querySelector(".dropdown");
-    if (!trigger.contains(event.target)) {
-      dropdown.style.maxHeight = "0";
+  document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById("dropdown-content");
+    if (!event.target.closest('.dropdown')) {
+      dropdown.style.display = 'none';
     }
   });
 </script>
-
-
-  <!-- === FOOTER === -->
-  <footer style="background-color:#f2f2f2; text-align:center; padding:20px; margin-top:40px;">
-    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
-  </footer>
 
 </body>
 </html>
