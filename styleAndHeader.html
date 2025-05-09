@@ -1,4 +1,4 @@
-<!-- === STYLES & HEADER === -->
+<!-- === STYLES & HEADER (FIXED) === -->
 <style>
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +15,7 @@
     background-color: #1a5d2c;
     padding: 1rem;
     position: relative;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0; /* Remove curve to avoid gaps */
   }
 
   .dropdown {
@@ -23,19 +23,18 @@
     display: inline-block;
   }
 
-  nav a,
   .dropbtn {
     color: white;
-    background-color: #1a5d2c;
+    background-color: #2c3e50;
     padding: 0.6rem 1.2rem;
-    border-radius: 6px;
+    border-radius: 6px 6px 0 0; /* Rounded top only */
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
     cursor: pointer;
+    border: none;
   }
 
-  nav a:hover,
   .dropbtn:hover {
     background-color: #3c7d44;
   }
@@ -47,9 +46,11 @@
     left: 0;
     background-color: #2c3e50;
     border: 1px solid #1a5d2c;
-    border-radius: 0 0 6px 6px;
+    border-top: none; /* No double border */
+    border-radius: 0 0 6px 6px; /* Rounded bottom only */
+    margin-top: 0;
     min-width: 160px;
-    z-index: 1;
+    z-index: 100;
   }
 
   .dropdown-content a {
@@ -106,5 +107,3 @@
     }
   }
 </style>
-
-</script>
