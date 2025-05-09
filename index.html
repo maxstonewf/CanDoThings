@@ -150,9 +150,9 @@
 
 <!-- === NAVIGATION BAR === -->
 <nav>
-  <div class="dropdown">
+  <div class="dropdown" onclick="toggleDropdown()" onmouseleave="closeDropdown()">
     <button class="dropbtn">Services</button>
-    <div class="dropdown-content">
+    <div class="dropdown-content" id="handyDropdown">
       <a href="maintenance.html">🪜 Maintenance</a>
       <a href="pressure.html">💦 Pressure Washing</a>
       <a href="tree.html">🌳 Tree & Brush Work</a>
@@ -308,20 +308,27 @@
   <!-- === CONTENT WRAPPER END === -->
 
   <!-- === DROPDOWN SCRIPT === -->
-  <script>
-    function toggleDropdown() {
-      const menu = document.getElementById("handyDropdown");
-      menu.classList.toggle("show");
-    }
+<script>
+  function toggleDropdown() {
+    const menu = document.getElementById("handyDropdown");
+    menu.style.maxHeight = menu.style.maxHeight === "500px" ? "0" : "500px";
+  }
 
-    document.addEventListener("click", function(event) {
-      const dropdown = document.getElementById("handyDropdown");
-      const trigger = document.querySelector(".dropdown");
-      if (!trigger.contains(event.target)) {
-        dropdown.classList.remove("show");
-      }
-    });
-  </script>
+  function closeDropdown() {
+    if (window.innerWidth > 600) {
+      document.getElementById("handyDropdown").style.maxHeight = "0";
+    }
+  }
+
+  document.addEventListener("click", function(event) {
+    const dropdown = document.getElementById("handyDropdown");
+    const trigger = document.querySelector(".dropdown");
+    if (!trigger.contains(event.target)) {
+      dropdown.style.maxHeight = "0";
+    }
+  });
+</script>
+
 
   <!-- === FOOTER === -->
   <footer style="background-color:#f2f2f2; text-align:center; padding:20px; margin-top:40px;">
