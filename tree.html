@@ -5,37 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🌳 Tree & Brush Services | HandyCrew4You</title>
   <link rel="icon" type="image/png" href="favIcon.png" />
-  
-<!-- === Load shared style and header nav === -->
-<div id="style-header"></div>
-<script>
-  fetch('style-and-header.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('style-header').innerHTML = data;
-    });
-</script>
 
+  <!-- === LOAD SHARED STYLES === -->
+  <script>
+    fetch('styleAndheader.html')
+      .then(res => res.text())
+      .then(data => {
+        const styleContainer = document.createElement('div');
+        styleContainer.innerHTML = data;
+        document.head.appendChild(styleContainer);
+      });
+  </script>
+</head>
 
 <body>
-  <!-- === NAVIGATION === -->
-<nav id="nav-section"></nav>
-<script>
-  fetch('dropdown.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('nav-section').innerHTML = data;
-    });
-</script>
+  <!-- === LOAD NAVIGATION DROPDOWN === -->
+  <nav id="nav-section"></nav>
+  <script>
+    fetch('dropdown.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('nav-section').innerHTML = data;
+      });
+  </script>
 
-
-  <!-- === HEADER === -->
+  <!-- === PAGE-SPECIFIC HEADER === -->
   <header>
     <h1>🌳 Tree & Brush Services</h1>
     <p>Safe, reliable trimming, cleanup, and small removals in Bend</p>
   </header>
 
-  <!-- === CONTENT SECTION === -->
+  <!-- === MAIN CONTENT === -->
   <div class="content">
     <!-- === SERVICE LIST === -->
     <section class="service-list">
@@ -69,7 +69,7 @@
     <!-- === VISUAL BREAK === -->
     <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
 
-    <!-- === CALL TO ACTION (INJECTED) === -->
+    <!-- === INJECT CONTACT CTA === -->
     <div id="contact-section"></div>
     <script>
       fetch('contact.html')
@@ -85,7 +85,7 @@
     &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
   </footer>
 
-  <!-- === JS DROPDOWN FIX === -->
+  <!-- === DROPDOWN SCRIPT === -->
   <script>
     function toggleDropdown() {
       const dropdown = document.getElementById("dropdown-content");
