@@ -1,12 +1,11 @@
  <!-- === STYLE === -->
-  <style>
+   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f4f3;
-      color: #2c3e50;
       line-height: 1.6;
+      background-color: #f9f9f9;
     }
 
     nav {
@@ -15,6 +14,7 @@
       background-color: #1a5d2c;
       padding: 1rem;
       position: relative;
+      border-radius: 0 0 10px 10px;
     }
 
     .dropdown {
@@ -64,29 +64,32 @@
     }
 
     header {
-      background-color: #1a5d2c;
-      color: white;
-      padding: 2rem 1rem;
       text-align: center;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
     }
 
-    header h1 {
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2.2rem;
       margin-bottom: 0.5rem;
     }
 
-    .content {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-
-    .content h2 {
+    h2 {
       color: #1a5d2c;
+      font-size: 1.5rem;
       margin-top: 2rem;
-    }
-
-    .content ul {
-      padding-left: 1.2rem;
     }
 
     footer {
@@ -98,14 +101,6 @@
     }
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      .content h2 {
-        font-size: 1.3rem;
-      }
-
       nav {
         flex-direction: column;
         align-items: center;
@@ -121,6 +116,14 @@
       nav a {
         width: 100%;
         text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
       }
     }
   </style>
