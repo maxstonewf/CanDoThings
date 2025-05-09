@@ -11,11 +11,13 @@
     fetch('styleAndheader.html')
       .then(res => res.text())
       .then(data => {
-        const styleContainer = document.createElement('div');
-        styleContainer.innerHTML = data;
-        document.head.appendChild(styleContainer);
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = data;
+        const styles = tempDiv.querySelectorAll('style');
+        styles.forEach(style => document.head.appendChild(style));
       });
   </script>
+
 </head>
 
 <body>
