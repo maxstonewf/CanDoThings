@@ -125,19 +125,15 @@
 <body>
 
 <!-- === NAVIGATION BAR === -->
-<nav>
-  <div class="dropdown" onclick="toggleDropdown()" onmouseleave="closeDropdown()">
-    <button class="dropbtn">Services</button>
-    <div id="dropdown-content" class="dropdown-content">
-      <a href="maintenance.html">🪜 Maintenance</a>
-      <a href="pressure.html">💦 Pressure Washing</a>
-      <a href="tree.html">🌳 Tree & Brush Work</a>
-      <a href="handyman.html">🛠️ Handyman</a>
-      <a href="carpet.html">🧼 Carpet Cleaning</a>
-      <a href="analystit.html">🧠 Consulting/SaaS</a>
-    </div>
-  </div>
-</nav>
+<nav id="nav-section"></nav>
+<script>
+  fetch('dropdown.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('nav-section').innerHTML = data;
+    });
+</script>
+
 
 <!-- === CONTENT WRAPPER START === -->
 <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
