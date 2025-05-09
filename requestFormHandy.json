@@ -1,0 +1,75 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "path": "requestFormHandy",
+        "options": {}
+      },
+      "id": "Webhook",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "Name": "={{$json[\"name\"]}}",
+          "Email": "={{$json[\"email\"]}}",
+          "Phone": "={{$json[\"phone\"]}}",
+          "Service": "={{$json[\"service\"]}}",
+          "Preferred Date": "={{$json[\"date\"]}}",
+          "Notes": "={{$json[\"message\"]}}"
+        }
+      },
+      "id": "Set",
+      "name": "Format Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        400,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "you@yourdomain.com",
+        "toEmail": "you@yourdomain.com",
+        "subject": "New HandyCrew4You Booking Request \u2013 {{$json[\"Service\"]}}",
+        "text": "New service request received:\n\nName: {{$json[\"Name\"]}}\nEmail: {{$json[\"Email\"]}}\nPhone: {{$json[\"Phone\"]}}\nService: {{$json[\"Service\"]}}\nPreferred Date: {{$json[\"Preferred Date\"]}}\nNotes:\n{{$json[\"Notes\"]}}"
+      },
+      "id": "Email",
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [
+        600,
+        200
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "YOUR_CREDENTIAL_ID"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          "Format Fields"
+        ]
+      ]
+    },
+    "Format Fields": {
+      "main": [
+        [
+          "Send Email"
+        ]
+      ]
+    }
+  }
+}
