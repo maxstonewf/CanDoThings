@@ -17,20 +17,24 @@ app.post('/book', async (req, res) => {
   const bookingData = req.body;
   console.log('📬 New Booking Received:', bookingData);
 
-  try {
-    // Forward booking data to your n8n webhook - still need to input webhook
-    await axios.post('https://n8n-render-host-nju6.onrender.com/webhook/requestFormAgent', bookingData);
+app.post('/book', async (req, res) => {
+  const bookingData = req.body;
+  console.log('📬 New Booking Received:', bookingData);
 
-    console.log('📨 Booking forwarded to n8n');
-    res.status(200).json({
-      message: 'Booking received and forwarded to n8n.',
-      data: bookingData
-    });
+  try {
+    const response = await axios.post(
+      'https://n8n-render-host-nju6.onrender.com/webhook/requestFormAgent',
+      bookingData
+    );
+
+    console.log('📨 Booking forwarded to n8n:', response.status);
+    res.status(200).json({ message: 'Booking received and forwarded to n8n.', data: bookingData });
   } catch (error) {
-    console.error('❌ Error forwarding to n8n:', error.message);
+    console.error('❌ Error forwarding to n8n:', error.response?.status, error.response?.data || error.message);
     res.status(500).json({ message: 'Failed to forward to n8n.' });
   }
 });
+
 
 // Start server
 app.listen(PORT, () => {
