@@ -52,12 +52,11 @@
   </style>
 </head>
 <body>
-  <form action="https://candothings.onrender.com/book"
-    method="POST" 
-    enctype="application/x-www-form-urlencoded">
+  <form id="bookingForm">
     <h2>Book a Service</h2>
+
     <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="Your full name" >
+    <input type="text" id="name" name="name" placeholder="Your full name">
 
     <label for="email">Email Address</label>
     <input type="email" id="email" name="email" placeholder="you@example.com" required>
@@ -66,7 +65,7 @@
     <input type="tel" id="phone" name="phone" placeholder="555-123-4567">
 
     <label for="service">Select a Service</label>
-    <select id="service" name="service" >
+    <select id="service" name="service">
       <option value="">-- Please choose a service --</option>
       <option value="exterior_maintenance">🪜 Exterior Maintenance</option>
       <option value="handyman">🛠️ Handyman Services</option>
@@ -75,12 +74,42 @@
     </select>
 
     <label for="date">Preferred Date</label>
-    <input type="date" id="date" name="date" >
+    <input type="date" id="date" name="date">
 
     <label for="message">Additional Notes</label>
     <textarea id="message" name="message" rows="4" placeholder="Describe the project, access details, or timing preferences."></textarea>
 
     <button type="submit">Book Now</button>
   </form>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        service: form.service.value,
+        date: form.date.value,
+        message: form.message.value
+      };
+
+      try {
+        const response = await fetch('https://n8n-render-host-nju6.onrender.com/webhook/requestFormAgent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        alert(result.message || 'Booking submitted!');
+      } catch (err) {
+        alert('Failed to submit booking.');
+        console.error('❌ Error:', err);
+      }
+    });
+  </script>
 </body>
 </html>
