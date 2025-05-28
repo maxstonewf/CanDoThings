@@ -1,13 +1,27 @@
-<div class="dropdown" onclick="toggleDropdown()" onmouseleave="closeDropdown()">
-  <button class="dropbtn">Services</button>
+<!-- === NAVIGATION DROPDOWN === -->
+<div class="nav-dropdown">
+  <button class="nav-button" onclick="toggleDropdown()">Services ▾</button>
   <div id="dropdown-content" class="dropdown-content">
     <a href="maintenance.html">🪜 Maintenance</a>
     <a href="pressure.html">💦 Pressure Washing</a>
     <a href="tree.html">🌳 Tree & Brush Work</a>
     <a href="handyman.html">🛠️ Handyman</a>
-    <!--
-    <a href="carpet.html">🧼 Carpet Cleaning</a>
-    -->
-    <a href="bookServiceTool.html">📅 Book a Service</a> <!-- NEW -->
+    <!-- <a href="carpet.html">🧼 Carpet Cleaning</a> -->
+    <a href="bookServiceTool.html">📅 Book a Service</a>
   </div>
 </div>
+
+<script>
+  function toggleDropdown() {
+    const content = document.getElementById("dropdown-content");
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  }
+
+  window.addEventListener("click", function (e) {
+    if (!e.target.closest(".nav-dropdown")) {
+      const content = document.getElementById("dropdown-content");
+      if (content) content.style.display = "none";
+    }
+  });
+</script>
+
