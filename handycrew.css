@@ -60,7 +60,8 @@ p {
 }
 
 /* === CTA BUTTON === */
-.btn {
+.btn,
+.cta-button {
   background-color: var(--charcoal);
   color: white;
   padding: 0.75rem 1.4rem;
@@ -75,7 +76,8 @@ p {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.btn:hover {
+.btn:hover,
+.cta-button:hover {
   background-color: var(--green);
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -111,11 +113,35 @@ footer {
   padding-bottom: 2rem;
 }
 
+.footer-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-cta a {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+.footer-note {
+  margin-top: 0.5rem;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.footer-link {
+  color: blue;
+  text-decoration: underline;
+  font-weight: normal;
+}
+
 /* === NAVIGATION DROPDOWN === */
 .nav-dropdown {
   position: relative;
   display: inline-block;
-  margin: 1rem;
+  margin: 1rem auto;
+  text-align: center;
+  display: block;
 }
 
 .nav-button {
