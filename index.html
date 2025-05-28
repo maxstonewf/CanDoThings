@@ -1,75 +1,176 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HandyCrew4You – Home Services in Bend</title>
-  <link rel="stylesheet" href="handycrew.css" />
-  <link rel="icon" type="image/png" href="favIcon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-</head>
-<body>
+/* === GLOBAL VARIABLES === */
+:root {
+  --green: #1a5d2c;
+  --charcoal: #333;
+  --soft-gray: #f5f5f5;
+  --accent-yellow: #f9cb40;
+}
 
-  <!-- === NAVIGATION BAR === -->
-  <nav id="nav-section"></nav>
-  <script>
-    fetch('dropdown.html')
-      .then(res => res.text())
-      .then(data => {
-        const nav = document.getElementById('nav-section');
-        nav.innerHTML = data;
+/* === BASE STYLES === */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: white;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
 
-        const dropdownBtn = nav.querySelector('.dropdown');
-        const dropdownContent = nav.querySelector('#dropdown-content');
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
 
-        if (dropdownBtn && dropdownContent) {
-          dropdownBtn.addEventListener('click', () => {
-            dropdownContent.style.display =
-              dropdownContent.style.display === 'block' ? 'none' : 'block';
-          });
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--green);
+  margin-top: 0;
+}
 
-          dropdownBtn.addEventListener('mouseleave', () => {
-            if (window.innerWidth > 600) {
-              dropdownContent.style.display = 'none';
-            }
-          });
+p {
+  margin-bottom: 1rem;
+}
 
-          document.addEventListener('click', function (event) {
-            if (!event.target.closest('.dropdown')) {
-              dropdownContent.style.display = 'none';
-            }
-          });
-        }
-      });
-  </script>
+/* === HERO SECTION === */
+.hero {
+  background-color: var(--soft-gray);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
 
-  <!-- === MAIN CONTENT === -->
-  <main class="container fade-in">
-    <section class="hero">
-      <h1>Welcome to HandyCrew4You</h1>
-      <p class="tagline">Reliable handyman work, tree trimming, and exterior cleaning — done right every time.</p>
-      <p class="location">Serving Northwest Crossing, Old Farm District, Boyd Acres, Midtown, and beyond in Bend, Oregon.</p>
-      <p class="personal-note">
-        HandyCrew4You is a local, owner-operated service focused on practical fixes, outdoor upkeep, and helping folks around Bend keep things in shape. 
-        It's not always fancy — and some of the work might even look like you did it yourself (in the best way). But it’s clean, reliable, and done with care.
-      </p>
-      <div class="cta-center">
-        <a href="bookServiceTool.html" class="btn">📅 Book a Service</a>
-      </div>
-    </section>
+.tagline {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
 
-    <!-- Add more sections here in future if needed -->
-  </main>
+.location {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
 
-  <!-- === CONTACT FOOTER INJECTION === -->
-  <div id="contact-section"></div>
-  <script>
-    fetch('contact.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('contact-section').innerHTML = data;
-      });
-  </script>
+.personal-note {
+  font-style: italic;
+  color: #444;
+  max-width: 700px;
+  margin: 1.5rem auto;
+}
 
-</body>
-</html>
+/* === CTA BUTTON === */
+.btn,
+.cta-button {
+  background-color: var(--charcoal);
+  color: white;
+  padding: 0.75rem 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover,
+.cta-button:hover {
+  background-color: var(--green);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1.03); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1.03); }
+}
+
+/* === FADE-IN === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.footer-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-note {
+  margin-top: 0.5rem;
+  color: #aaa;
+  font-size: 1rem;
+}
+
+.footer-link {
+  color: blue;
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+/* === NAVIGATION DROPDOWN === */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 1rem;
+}
+
+.nav-button {
+  background-color: var(--charcoal);
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: var(--green);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 220px;
+  padding: 0.5rem 0;
+  border-radius: 6px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--charcoal);
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--soft-gray);
+}
