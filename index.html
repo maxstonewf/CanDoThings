@@ -6,9 +6,11 @@
   <title>HandyCrew4You – Home Services in Bend</title>
   <link rel="stylesheet" href="handycrew.css" />
   <link rel="icon" type="image/png" href="favIcon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+  <!-- === NAVIGATION BAR === -->
   <nav id="nav-section"></nav>
   <script>
     fetch('dropdown.html')
@@ -41,6 +43,7 @@
       });
   </script>
 
+  <!-- === MAIN CONTENT === -->
   <main class="container fade-in">
     <section class="hero">
       <h1>Welcome to HandyCrew4You</h1>
@@ -55,12 +58,18 @@
       </div>
     </section>
 
-    <!-- Additional content sections go here -->
-
+    <!-- Add more sections here in future if needed -->
   </main>
 
-  <footer>
-    &copy; 2025 HandyCrew4You. Built in Bend, Oregon.
-  </footer>
+  <!-- === CONTACT FOOTER INJECTION === -->
+  <div id="contact-section"></div>
+  <script>
+    fetch('contact.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('contact-section').innerHTML = data;
+      });
+  </script>
+
 </body>
 </html>
