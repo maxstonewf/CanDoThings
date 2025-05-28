@@ -6,28 +6,27 @@
   <title>Book a Service – HandyCrew4You</title>
   <link rel="icon" type="image/png" href="favIcon.png" />
 
-  <script>
-    fetch('styleAndHeader.html')
-      .then(res => res.text())
-      .then(data => {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = data;
-        const styles = tempDiv.querySelectorAll('style');
-        styles.forEach(style => document.head.appendChild(style));
-      });
-  </script>
-</head>
+<script>
+  fetch('styleAndHeader.html')
+    .then(res => res.text())
+    .then(data => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = data;
+      const styles = tempDiv.querySelectorAll('style');
+      styles.forEach(style => document.head.appendChild(style));
+    });
+</script>
 
-<body>
-  <!-- === NAVIGATION BAR === -->
-  <nav id="nav-section"></nav>
-  <script>
-    fetch('dropdown.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('nav-section').innerHTML = data;
-      });
-  </script>
+
+<!-- === NAVIGATION BAR === -->
+<nav id="nav-section"></nav>
+<script>
+  fetch('dropdown.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('nav-section').innerHTML = data;
+    });
+</script>
 
   <!-- === CONTENT === -->
   <main style="max-width: 1000px; margin: 0 auto; padding: 2rem 1rem;">
