@@ -43,6 +43,22 @@
     <p style="margin-top: 2rem;"><a href="index.html">← Back to homepage</a></p>
   </main>
 
+   <!-- === VISUAL BREAK === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+  
+    <!-- === INJECT CONTACT CTA === -->
+    <div id="contact-section"></div>
+    <script>
+      fetch('contact.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('contact-section').innerHTML = data;
+        });
+    </script>
+  </div>
+<!-- === END CONTENT WRAPPER === -->
+
+  
   <!-- === FOOTER === -->
   <footer>
     &copy; 2025 HandyCrew4You. Serving Bend, Oregon and surrounding areas.
