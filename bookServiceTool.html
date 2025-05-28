@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Service – HandyCrew4You</title>
+  <link rel="icon" type="image/png" href="favIcon.png" />
+
+  <script>
+    fetch('styleAndHeader.html')
+      .then(res => res.text())
+      .then(data => {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = data;
+        const styles = tempDiv.querySelectorAll('style');
+        styles.forEach(style => document.head.appendChild(style));
+      });
+  </script>
+</head>
+
+<body>
+  <!-- === NAVIGATION BAR === -->
+  <nav id="nav-section"></nav>
+  <script>
+    fetch('dropdown.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('nav-section').innerHTML = data;
+      });
+  </script>
+
+  <!-- === CONTENT === -->
+  <main style="max-width: 1000px; margin: 0 auto; padding: 2rem 1rem;">
+    <h1 style="margin-bottom: 1rem;">📅 Book a Service</h1>
+    <p style="margin-bottom: 2rem;">Use the form below to request a quote or book a job. We'll get back to you as quickly as possible.</p>
+
+    <iframe 
+      src="requestForm.html" 
+      style="width: 100%; max-width: 500px; height: 600px; border: none; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" 
+      loading="lazy">
+    </iframe>
+
+    <p style="margin-top: 2rem;"><a href="index.html">← Back to homepage</a></p>
+  </main>
+
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 HandyCrew4You. Serving Bend, Oregon and surrounding areas.
+  </footer>
+</body>
+</html>
