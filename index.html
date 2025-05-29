@@ -10,13 +10,48 @@
 </head>
 <body>
 
+ <!-- === NAVIGATION BAR === -->
+  <nav id="nav-section"></nav>
+  <script>
+    fetch('dropdown.html')
+      .then(res => res.text())
+      .then(data => {
+        const nav = document.getElementById('nav-section');
+        nav.innerHTML = data;
+
+        const dropdownBtn = nav.querySelector('.dropdown');
+        const dropdownContent = nav.querySelector('#dropdown-content');
+
+        if (dropdownBtn && dropdownContent) {
+          dropdownBtn.addEventListener('click', () => {
+            dropdownContent.style.display =
+              dropdownContent.style.display === 'block' ? 'none' : 'block';
+          });
+
+          dropdownBtn.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 600) {
+              dropdownContent.style.display = 'none';
+            }
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!event.target.closest('.dropdown')) {
+              dropdownContent.style.display = 'none';
+            }
+          });
+        }
+      });
+  </script>
+
+  <!-- HEADER CONTENT -->
+
   <main class="container fade-in">
     <section class="hero">
       <h1>Welcome to HandyCrew4You</h1>
       <p class="tagline">Reliable handyman work, tree trimming, and exterior cleaning — done right every time.</p>
       <p class="location">Serving Northwest Crossing, Old Farm District, Boyd Acres, Midtown, and beyond in Bend, Oregon.</p>
       <p class="personal-note">
-        HandyCrew4You is a local, owner-operated service focused on practical fixes, outdoor upkeep, and helping folks around Bend keep things in shape. 
+        HandyCrew4You is a local service focused on practical fixes, outdoor upkeep, and helping folks around Bend keep things in shape. 
         It's not always fancy — and some of the work might even look like you did it yourself (in the best way). But it’s clean, reliable, and done with care.
       </p>
       <div class="cta-center">
@@ -25,6 +60,57 @@
     </section>
 
     <hr />
+    
+    <!-- === VISUAL BREAK === -->
+<hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+
+
+<section id="services" class="container fade-in">
+  <h2>Services Offered</h2>
+
+  <h3>General Maintenance</h3>
+  <ul>
+    <li>Weed whacking and yard upkeep</li>
+    <li>Gutter clearing and minor exterior cleanup</li>
+    <li>Recurring monthly or seasonal service packages</li>
+  </ul>
+
+  <h3>Pressure Washing</h3>
+  <ul>
+    <li>Driveways, patios, sidewalks</li>
+    <li>Vinyl siding, decks, fences</li>
+    <li>Moss and mildew removal</li>
+  </ul>
+
+  <h3>Tree & Brush Work</h3>
+  <ul>
+    <li>Overhanging limb and borken branch removal</li>
+    <li>Small tree and brush clearing</li>
+    <li>Chainsaw work & debris haul-off</li>
+  </ul>
+  <p class="note">Note: We do not offer high-climb or large-scale removals.</p>
+
+  <h3>Handyman – <span style="color: #800020; font-weight: bold; animation: blink 1s steps(1, start) infinite;">TBD</span></h3>
+  <ul>
+    <li>Light carpentry & patching</li>
+    <li>Furniture assembly, appliance installs</li>
+    <li>Basic plumbing & fixture swaps</li>
+  </ul>
+
+  <!-- HIDDEN 
+  <h3>Carpet Cleaning – <span style="color: #800020; font-weight: bold; animation: blink 1s steps(1, start) infinite;">TBD</span></h3>
+  <ul>
+    <li>Deep wet-vac extraction</li>
+    <li>Soap & rinse options available</li>
+    <li>Great for move-outs, rentals, small jobs</li>
+  </ul>
+
+  -->
+</section>
+
+<!-- === VISUAL BREAK === -->
+<hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+
 
     <!-- === FAQ SECTION === -->
     <section>
