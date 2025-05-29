@@ -3,46 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AnalystIt – Automation, Dashboards, and Clean Design</title>
+  <title>🧠 AnalystIt – Automation, Dashboards, and Clean Design</title>
+  <link rel="icon" type="image/png" href="favIcon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* === BASE STYLE === */
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       background-color: #0f1117;
       color: #e0e0e0;
+      line-height: 1.6;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    main {
-      max-width: 800px;
-      padding: 2rem 1.5rem;
-      margin: auto;
+    header {
+      background-color: #1a1c22;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      text-align: center;
+      margin: 2rem auto 2.5rem auto;
+      max-width: 900px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
     }
 
     h1 {
-      font-size: 2.4rem;
-      text-align: center;
+      font-size: 2.2rem;
       color: #00b7ff;
       margin-bottom: 0.5rem;
     }
 
     h2 {
-      font-size: 1.5rem;
-      margin-top: 2.5rem;
+      font-size: 1.4rem;
       color: #00b7ff;
+      margin-top: 2.5rem;
     }
 
     p {
-      font-size: 1.1rem;
       text-align: center;
       color: #ccc;
+      margin-bottom: 1rem;
     }
 
     ul {
-      margin-top: 1rem;
       padding-left: 1.5rem;
     }
 
@@ -99,10 +110,24 @@
 </head>
 
 <body>
-  <main>
+  <!-- === NAVIGATION === -->
+  <nav id="nav-section"></nav>
+  <script>
+    fetch('dropdown.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('nav-section').innerHTML = data;
+      });
+  </script>
+
+  <!-- === HEADER === -->
+  <header class="fade-in">
     <h1>🧠 AnalystIt</h1>
     <p>Sleek, practical tech tools that work — fast builds, smart automation, and clear visuals.</p>
+  </header>
 
+  <!-- === MAIN CONTENT === -->
+  <main class="container fade-in">
     <h2>Core Services</h2>
     <ul>
       <li>⚙️ Automated workflows (Google Docs, Sheets, Calendar, Email)</li>
@@ -112,27 +137,26 @@
     </ul>
 
     <h2>Availability</h2>
-    <p class="highlight">Schedule or Call and we can chat about your specific needs.</p>
+    <p class="highlight">Schedule or call and we can chat about your specific needs.</p>
 
     <h2>Work With Me</h2>
     <p>Freelance, retainer, or one-off projects — tailored for speed and clarity. Start simple. Scale smart.</p>
 
-<!-- === VISUAL BREAK === -->
-<hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
-    
-<div id="contact-section"></div>
-<script>
-  fetch('contact.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('contact-section').innerHTML = data;
-    });
-</script>
+    <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #444; width: 60%;" />
 
+    <!-- === CALL TO ACTION (FOOTER CTA) === -->
+    <div id="contact-section"></div>
+    <script>
+      fetch('contact.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('contact-section').innerHTML = data;
+        });
+    </script>
   </main>
 
   <footer class="footer">
-    &copy; 2023 AnalystIt by AnalystIt LLC. - Built in Bend, Oregon.
+    &copy; 2025 AnalystIt by AnalystIt LLC. Built in Bend, Oregon.
   </footer>
 </body>
 </html>
