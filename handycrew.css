@@ -61,7 +61,8 @@ p {
 
 /* === CTA BUTTON === */
 .btn,
-.cta-button {
+.cta-button,
+.dropbtn {
   background-color: var(--charcoal);
   color: white;
   padding: 0.75rem 1.4rem;
@@ -78,7 +79,8 @@ p {
 }
 
 .btn:hover,
-.cta-button:hover {
+.cta-button:hover,
+.dropbtn:hover {
   background-color: var(--green);
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -143,7 +145,7 @@ footer {
 }
 
 /* === NAVIGATION DROPDOWN === */
-.nav-dropdown {
+.dropdown {
   position: relative;
   display: flex;
   justify-content: center;
@@ -151,22 +153,6 @@ footer {
   margin: 1rem auto;
   text-align: center;
   z-index: 999;
-}
-
-.nav-button {
-  background-color: var(--charcoal);
-  color: white;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.nav-button:hover {
-  background-color: var(--green);
 }
 
 .dropdown-content {
@@ -195,7 +181,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .nav-dropdown {
+  .dropdown {
     flex-direction: column;
     align-items: center;
   }
@@ -213,7 +199,8 @@ footer {
   }
 
   .btn,
-  .cta-button {
+  .cta-button,
+  .dropbtn {
     width: 90%;
     max-width: 300px;
   }
