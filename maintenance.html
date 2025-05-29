@@ -2,72 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🪜 Maintenance | HandyCrew4You</title>
+  <link rel="stylesheet" href="handycrew.css" />
   <link rel="icon" type="image/png" href="favIcon.png" />
-
-<script>
-  fetch('styleAndHeader.html')
-    .then(res => res.text())
-    .then(data => {
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = data;
-      const styles = tempDiv.querySelectorAll('style');
-      styles.forEach(style => document.head.appendChild(style));
-    });
-</script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
   <!-- === NAVIGATION === -->
-<nav id="nav-section"></nav>
-<script>
-  fetch('dropdown.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('nav-section').innerHTML = data;
-    });
-</script>
+  <nav id="nav-section"></nav>
+  <script>
+    fetch('dropdown.html')
+      .then(res => res.text())
+      .then(data => {
+        const nav = document.getElementById('nav-section');
+        nav.innerHTML = data;
 
+        const dropdownBtn = nav.querySelector('.dropdown');
+        const dropdownContent = nav.querySelector('#dropdown-content');
 
-  <!-- === HEADER === -->
-  <header>
-    <h1>🪜 General Maintenance</h1>
-    <p>Flexible yard and exterior care for long-term peace of mind.</p>
-  </header>
+        if (dropdownBtn && dropdownContent) {
+          dropdownBtn.addEventListener('click', () => {
+            dropdownContent.style.display =
+              dropdownContent.style.display === 'block' ? 'none' : 'block';
+          });
 
-  <!-- === SERVICE LIST === -->
-  <section>
-    <h2>What’s Included</h2>
-    <ul>
-      <li>Gutter clearing and roofline maintenance</li>
-      <li>Cobweb & debris removal from siding, eaves, or porches</li>
-      <li>Monthly and seasonal care packages available</li>
-      <li>Custom requests welcome — we'll work with your needs</li>
-    </ul>
+          dropdownBtn.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 600) {
+              dropdownContent.style.display = 'none';
+            }
+          });
 
-    <h2>Who It's For</h2>
-    <ul>
-      <li>Rental property owners</li>
-      <li>Second-home or vacation property managers</li>
-      <li>Homeowners who want help with upkeep</li>
-    </ul>
+          document.addEventListener('click', function (event) {
+            if (!event.target.closest('.dropdown')) {
+              dropdownContent.style.display = 'none';
+            }
+          });
+        }
+      });
+  </script>
 
-    <h2>Request a Quote</h2>
-    <p>
-      Contact us to schedule a free walk-through or send photos.  
-      We’ll help you figure out what level of recurring care makes sense for your home or rental.
-    </p>
-  </section>
+  <!-- === MAIN CONTENT === -->
+  <main class="container fade-in">
+    <!-- === HEADER === -->
+    <header>
+      <h1>🪜 General Maintenance</h1>
+      <p class="tagline">Flexible yard and exterior care for long-term peace of mind.</p>
+    </header>
 
-  <!-- === CONTACT REMINDER === -->
-  <section class="service-list">
-    <h2>Need Help?</h2>
-    <p>Reach out via the homepage <a href="index.html">here</a> or call directly. Let’s clear it up safely and cleanly.</p>
-  </section>
-  
+    <!-- === SERVICE LIST === -->
+    <section class="service-list">
+      <h2>What’s Included</h2>
+      <ul>
+        <li>Gutter clearing and roofline maintenance</li>
+        <li>Cobweb & debris removal from siding, eaves, or porches</li>
+        <li>Monthly and seasonal care packages available</li>
+        <li>Custom requests welcome — we'll work with your needs</li>
+      </ul>
+
+      <h2>Who It's For</h2>
+      <ul>
+        <li>Rental property owners</li>
+        <li>Second-home or vacation property managers</li>
+        <li>Homeowners who want help with upkeep</li>
+      </ul>
+
+      <h2>Request a Quote</h2>
+      <p>
+        Contact us to schedule a free walk-through or send photos.  
+        We’ll help you figure out what level of recurring care makes sense for your home or rental.
+      </p>
+    </section>
+
+    <!-- === CONTACT REMINDER === -->
+    <section class="service-list">
+      <h2>Need Help?</h2>
+      <p>Reach out via the homepage <a href="index.html">here</a> or call directly. Let’s clear it up safely and cleanly.</p>
+    </section>
+  </main>
+
   <!-- === VISUAL BREAK === -->
   <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
-      
-  <!-- === CALL TO ACTION (INJECTED) === -->
+
+  <!-- === CALL TO ACTION FOOTER (INJECTED) === -->
   <div id="contact-section"></div>
   <script>
     fetch('contact.html')
@@ -81,26 +98,5 @@
   <footer>
     &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
   </footer>
-
-  <!-- === JS DROPDOWN FIX === -->
-  <script>
-    function toggleDropdown() {
-      const dropdown = document.getElementById("dropdown-content");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
-
-    function closeDropdown() {
-      if (window.innerWidth > 600) {
-        document.getElementById("dropdown-content").style.display = "none";
-      }
-    }
-
-    document.addEventListener('click', function (event) {
-      const dropdown = document.getElementById("dropdown-content");
-      if (!event.target.closest('.dropdown')) {
-        dropdown.style.display = 'none';
-      }
-    });
-  </script>
 </body>
 </html>
