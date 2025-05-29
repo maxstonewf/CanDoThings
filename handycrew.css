@@ -93,7 +93,7 @@ p {
   100% { transform: scale(1.03); }
 }
 
-/* === FADE-IN === */
+                      /* === FADE-IN === */
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
@@ -107,7 +107,7 @@ p {
   }
 }
 
-/* === FAQ CONTAINER === */
+                      /* === FAQ CONTAINER === */
 .faq-container {
   border: 1px solid #ddd;
   background-color: #fefefe;
@@ -119,7 +119,10 @@ p {
 }
 
 .faq-container details {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 .faq-container summary {
@@ -127,6 +130,26 @@ p {
   font-size: 1.05rem;
   cursor: pointer;
   margin-bottom: 0.5rem;
+  list-style: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.faq-container summary::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  transition: transform 0.2s ease;
+}
+
+.faq-container details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faq-container details p,
+.faq-container details div {
+  margin-top: 0.75rem;
+  padding-left: 1.5rem;
 }
 
 
