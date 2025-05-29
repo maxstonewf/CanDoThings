@@ -192,6 +192,20 @@ footer {
   margin-left: 1rem;
 }
 
+nav.top-nav {
+  background-color: var(--green);
+  padding: 1rem;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 @media (max-width: 768px) {
   .dropdown {
