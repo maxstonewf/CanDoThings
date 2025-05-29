@@ -244,7 +244,11 @@ nav.top-nav {
   border-radius: 0 0 10px 10px;
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+
 
 .nav-group {
   display: flex;
