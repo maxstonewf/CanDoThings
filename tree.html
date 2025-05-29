@@ -4,39 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🌳 Tree & Brush Services | HandyCrew4You</title>
+  <link rel="stylesheet" href="handycrew.css" />
   <link rel="icon" type="image/png" href="favIcon.png" />
-
-  <!-- === LOAD SHARED STYLES === -->
-  <script>
-    fetch('styleAndHeader.html')
-      .then(res => res.text())
-      .then(data => {
-        const styleContainer = document.createElement('div');
-        styleContainer.innerHTML = data;
-        document.head.appendChild(styleContainer);
-      });
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- === LOAD NAVIGATION DROPDOWN === -->
+  <!-- === NAVIGATION DROPDOWN === -->
   <nav id="nav-section"></nav>
   <script>
     fetch('dropdown.html')
       .then(res => res.text())
       .then(data => {
-        document.getElementById('nav-section').innerHTML = data;
+        const nav = document.getElementById('nav-section');
+        nav.innerHTML = data;
+
+        const dropdownBtn = nav.querySelector('.dropdown');
+        const dropdownContent = nav.querySelector('#dropdown-content');
+
+        if (dropdownBtn && dropdownContent) {
+          dropdownBtn.addEventListener('click', () => {
+            dropdownContent.style.display =
+              dropdownContent.style.display === 'block' ? 'none' : 'block';
+          });
+
+          dropdownBtn.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 600) {
+              dropdownContent.style.display = 'none';
+            }
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!event.target.closest('.dropdown')) {
+              dropdownContent.style.display = 'none';
+            }
+          });
+        }
       });
   </script>
 
-  <!-- === PAGE-SPECIFIC HEADER === -->
-  <header>
-    <h1>🌳 Tree & Brush Services</h1>
-    <p>Safe, reliable trimming, cleanup, and small removals in Bend</p>
-  </header>
-
   <!-- === MAIN CONTENT === -->
-  <div class="content">
+  <main class="container fade-in">
+    <!-- === HEADER === -->
+    <header>
+      <h1>🌳 Tree & Brush Services</h1>
+      <p class="tagline">Safe, reliable trimming, cleanup, and small removals in Bend</p>
+    </header>
+
     <!-- === SERVICE LIST === -->
     <section class="service-list">
       <h2>Available Services</h2>
@@ -50,68 +64,40 @@
       </ul>
     </section>
 
-<!-- === RATES & DETAILS === -->
-<section class="service-list">
-  <h2>Rates & Scheduling</h2>
-  <p>
-    All pricing is based on the specific scope of work — no one-size-fits-all rates. Whether it’s trimming branches, clearing brush, or cutting down and hauling away a tree, each job is evaluated individually based on size, access, safety, and cleanup needs.
-  </p>
+    <!-- === RATES & DETAILS === -->
+    <section class="service-list">
+      <h2>Rates & Scheduling</h2>
+      <p>
+        All pricing is based on the specific scope of work — no one-size-fits-all rates. Whether it’s trimming branches, clearing brush, or cutting down and hauling away a tree, each job is evaluated individually based on size, access, safety, and cleanup needs.
+      </p>
 
-  <ul style="margin-top: 1rem; padding-left: 1.25rem;">
-    <li><strong>🌿 Brush Clearing & Light Trimming:</strong> Priced by area and density — send photos for a quick estimate.</li>
-    <li><strong>🪓 Limb & Small Tree Removal:</strong> Rates vary depending on height, thickness, and structure — great for dead or overhanging limbs, or trees under ~20 feet.</li>
-    <li><strong>🚛 Hauling & Cleanup:</strong> Available for most jobs — pricing depends on volume and loads. I use a large trailer for efficient removal.</li>
-  </ul>
+      <ul>
+        <li><strong>🌿 Brush Clearing & Light Trimming:</strong> Priced by area and density — send photos for a quick estimate.</li>
+        <li><strong>🪓 Limb & Small Tree Removal:</strong> Rates vary depending on height, thickness, and structure — great for dead or overhanging limbs, or trees under ~20 feet.</li>
+        <li><strong>🚛 Hauling & Cleanup:</strong> Available for most jobs — pricing depends on volume and loads. I use a large trailer for efficient removal.</li>
+      </ul>
 
-  <p style="margin-top: 1rem;"><strong>Availability:</strong> Evenings and weekends; weekday slots available as needed. Reach out with your project details to check availability and get a quote.</p>
-</section>
-
-
+      <p style="margin-top: 1rem;"><strong>Availability:</strong> Evenings and weekends; weekday slots available as needed. Reach out with your project details to check availability and get a quote.</p>
+    </section>
 
     <!-- === CONTACT REMINDER === -->
     <section class="service-list">
       <h2>Need Help?</h2>
       <p>Reach out via the homepage <a href="index.html">here</a> or call directly. Let’s clear it up safely and cleanly.</p>
     </section>
+  </main>
 
-    <!-- === VISUAL BREAK === -->
-    <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+  <!-- === VISUAL BREAK === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
 
-    <!-- === INJECT CONTACT CTA === -->
-    <div id="contact-section"></div>
-    <script>
-      fetch('contact.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('contact-section').innerHTML = data;
-        });
-    </script>
-  </div>
-
-  <!-- === FOOTER === -->
-  <footer>
-    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
-  </footer>
-
-  <!-- === DROPDOWN SCRIPT === -->
+  <!-- === CALL TO ACTION FOOTER === -->
+  <div id="contact-section"></div>
   <script>
-    function toggleDropdown() {
-      const dropdown = document.getElementById("dropdown-content");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
-
-    function closeDropdown() {
-      if (window.innerWidth > 600) {
-        document.getElementById("dropdown-content").style.display = "none";
-      }
-    }
-
-    document.addEventListener('click', function (event) {
-      const dropdown = document.getElementById("dropdown-content");
-      if (!event.target.closest('.dropdown')) {
-        dropdown.style.display = 'none';
-      }
-    });
+    fetch('contact.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('contact-section').innerHTML = data;
+      });
   </script>
 </body>
 </html>
