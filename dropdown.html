@@ -1,23 +1,23 @@
-<!-- === NAVIGATION DROPDOWN === -->
-<nav>
-  <div class="dropdown">
-    <button class="dropbtn" onclick="toggleDropdown()">Services ▾</button>
-    <div id="dropdown-content" class="dropdown-content">
-      <a href="maintenance.html">🪜 Maintenance</a>
-      <a href="pressure.html">💦 Pressure Washing</a>
-      <a href="tree.html">🌳 Tree & Brush Work</a>
-      <a href="handyman.html">🛠️ Handyman</a>
-      <a href="index.html">🏠 Home</a>
+<!-- === NAVIGATION SECTION === -->
+<nav class="top-nav">
+  <div class="nav-group">
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown()">Services ▾</button>
+      <div id="dropdown-content" class="dropdown-content">
+        <a href="maintenance.html">🪜 Maintenance</a>
+        <a href="pressure.html">💦 Pressure Washing</a>
+        <a href="tree.html">🌳 Tree & Brush Work</a>
+        <a href="handyman.html">🛠️ Handyman</a>
+        <a href="index.html">🏠 Home</a>
+      </div>
     </div>
-  </div>
 
-  <div class="nav-cta">
     <a href="mailto:HandyCrew4You.johnson@gmail.com" class="btn">📧 Email Us</a>
     <a href="tel:5413204302" class="btn">📞 Call Now</a>
   </div>
 </nav>
 
-
+<!-- === DROPDOWN SCRIPT === -->
 <script>
   function toggleDropdown() {
     const dropdown = document.getElementById("dropdown-content");
@@ -31,19 +31,3 @@
     }
   });
 </script>
-
-<!-- == Old Version stricly for HTML deployment ==
-<script>
-  function toggleDropdown() {
-    const content = document.getElementById("dropdown-content");
-    content.style.display = content.style.display === "block" ? "none" : "block";
-  }
-
-  window.addEventListener("click", function (e) {
-    if (!e.target.closest(".nav-dropdown")) {
-      const content = document.getElementById("dropdown-content");
-      if (content) content.style.display = "none";
-    }
-  });
-</script>
--->
