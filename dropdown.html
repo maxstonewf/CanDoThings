@@ -19,15 +19,35 @@
 
 <!-- === DROPDOWN SCRIPT === -->
 <script>
-  function toggleDropdown() {
-    const dropdown = document.getElementById("dropdown-content");
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-  }
+  const button = document.querySelector(".dropbtn");
+  const dropdown = document.getElementById("dropdown-content");
+  let dropdownOpen = false;
 
-  window.addEventListener("click", function (e) {
-    if (!e.target.closest('.dropdown')) {
-      const dropdown = document.getElementById("dropdown-content");
-      if (dropdown) dropdown.style.display = "none";
+  // Toggle on button click
+  button.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent closing immediately
+    dropdown.style.display = dropdownOpen ? "none" : "block";
+    dropdownOpen = !dropdownOpen;
+  });
+
+  // Keep open when hovering over dropdown
+  dropdown.addEventListener("mouseenter", () => {
+    dropdown.style.display = "block";
+    dropdownOpen = true;
+  });
+
+  // Optional: hide on mouse leave (desktop only)
+  dropdown.addEventListener("mouseleave", () => {
+    dropdown.style.display = "none";
+    dropdownOpen = false;
+  });
+
+  // Close if clicked anywhere else
+  window.addEventListener("click", () => {
+    if (dropdownOpen) {
+      dropdown.style.display = "none";
+      dropdownOpen = false;
     }
   });
 </script>
+
