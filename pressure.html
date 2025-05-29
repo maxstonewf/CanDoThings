@@ -11,31 +11,31 @@
 
 <body>
   <!-- === NAVIGATION === -->
-<script>
-  fetch('dropdown.html')
-    .then(res => res.text())
-    .then(data => {
-      const nav = document.getElementById('nav-section');
-      nav.innerHTML = data;
+  <nav id="nav-section"></nav>
+  <script>
+    fetch('dropdown.html')
+      .then(res => res.text())
+      .then(data => {
+        const nav = document.getElementById('nav-section');
+        nav.innerHTML = data;
 
-      const dropdownBtn = nav.querySelector('.dropdown');
-      const dropdownContent = nav.querySelector('#dropdown-content');
+        const dropdownBtn = nav.querySelector('.dropdown');
+        const dropdownContent = nav.querySelector('#dropdown-content');
 
-      if (dropdownBtn && dropdownContent) {
-        dropdownBtn.addEventListener('click', () => {
-          dropdownContent.style.display =
-            dropdownContent.style.display === 'block' ? 'none' : 'block';
-        });
+        if (dropdownBtn && dropdownContent) {
+          dropdownBtn.addEventListener('click', () => {
+            dropdownContent.style.display =
+              dropdownContent.style.display === 'block' ? 'none' : 'block';
+          });
 
-        document.addEventListener('click', function (event) {
-          if (!event.target.closest('.dropdown')) {
-            dropdownContent.style.display = 'none';
-          }
-        });
-      }
-    });
-</script>
-
+          document.addEventListener('click', function (event) {
+            if (!event.target.closest('.dropdown')) {
+              dropdownContent.style.display = 'none';
+            }
+          });
+        }
+      });
+  </script>
 
   <!-- === HEADER === -->
   <header class="container fade-in">
@@ -90,25 +90,9 @@
       });
   </script>
 
-  <!-- === JS DROPDOWN === -->
-  <script>
-    function toggleDropdown() {
-      const dropdown = document.getElementById("dropdown-content");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-    }
-
-    function closeDropdown() {
-      if (window.innerWidth > 600) {
-        document.getElementById("dropdown-content").style.display = "none";
-      }
-    }
-
-    document.addEventListener('click', function (event) {
-      const dropdown = document.getElementById("dropdown-content");
-      if (!event.target.closest('.dropdown')) {
-        dropdown.style.display = 'none';
-      }
-    });
-  </script>
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
+  </footer>
 </body>
 </html>
