@@ -5,38 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>💦 Pressure Washing | HandyCrew4You</title>
   <link rel="icon" type="image/png" href="favIcon.png" />
+  <link rel="stylesheet" href="handycrew.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
 
-  <!-- === STYLES === -->
-<script>
-  fetch('styleAndHeader.html')
-    .then(res => res.text())
-    .then(data => {
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = data;
-      const styles = tempDiv.querySelectorAll('style');
-      styles.forEach(style => document.head.appendChild(style));
-    });
-</script>
-
+<body>
   <!-- === NAVIGATION === -->
-<nav id="nav-section"></nav>
-<script>
-  fetch('dropdown.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('nav-section').innerHTML = data;
-    });
-</script>
+  <nav id="nav-section"></nav>
+  <script>
+    fetch('dropdown.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('nav-section').innerHTML = data;
+      });
+  </script>
 
-
-  <!-- === Page HEADER === -->
-  <header>
+  <!-- === HEADER === -->
+  <header class="container fade-in">
     <h1>💦 Pressure Washing Services</h1>
     <p>Exterior surface cleaning for residential properties across Bend</p>
   </header>
 
-  <!-- === CONTENT SECTION === -->
-  <div class="content">
+  <!-- === MAIN CONTENT === -->
+  <main class="container fade-in">
     <!-- === SERVICE LIST === -->
     <section class="service-list">
       <h2>Scope of Services</h2>
@@ -67,7 +58,7 @@
         We’re committed to delivering high-quality results with minimal disruption.
       </p>
     </section>
-  </div>
+  </main>
 
   <!-- === VISUAL BREAK === -->
   <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
@@ -82,12 +73,7 @@
       });
   </script>
 
-  <!-- === FOOTER === -->
-  <footer>
-    &copy; 2025 HandyCrew4You. Serving Northwest Crossing, Midtown, Boyd Acres, and beyond.
-  </footer>
-
-  <!-- === JS DROPDOWN FIX === -->
+  <!-- === JS DROPDOWN === -->
   <script>
     function toggleDropdown() {
       const dropdown = document.getElementById("dropdown-content");
