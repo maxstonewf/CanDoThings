@@ -2,111 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🧠 AnalystIt – Automation, Dashboards, and Clean Design</title>
+  <link rel="stylesheet" href="handycrew.css" />
   <link rel="icon" type="image/png" href="favIcon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background-color: #0f1117;
-      color: #e0e0e0;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background-color: #1a1c22;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-      text-align: center;
-      margin: 2rem auto 2.5rem auto;
-      max-width: 900px;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      color: #00b7ff;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      color: #00b7ff;
-      margin-top: 2.5rem;
-    }
-
-    p {
-      text-align: center;
-      color: #ccc;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    ul li {
-      margin-bottom: 0.7rem;
-      font-size: 1rem;
-    }
-
-    .highlight {
-      color: #00b7ff;
-      font-weight: bold;
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin: 0.5rem;
-      background-color: #00b7ff;
-      color: #0f1117;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta a:hover {
-      background-color: #0090cc;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: auto;
-      padding: 2rem 1rem;
-      border-top: 1px solid #1f1f2e;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.3rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -116,47 +16,72 @@
     fetch('dropdown.html')
       .then(res => res.text())
       .then(data => {
-        document.getElementById('nav-section').innerHTML = data;
+        const nav = document.getElementById('nav-section');
+        nav.innerHTML = data;
+
+        // Activate dropdown interaction
+        const dropdownBtn = nav.querySelector('.dropdown');
+        const dropdownContent = nav.querySelector('#dropdown-content');
+
+        if (dropdownBtn && dropdownContent) {
+          dropdownBtn.addEventListener('click', () => {
+            dropdownContent.style.display =
+              dropdownContent.style.display === 'block' ? 'none' : 'block';
+          });
+
+          document.addEventListener('click', function (event) {
+            if (!event.target.closest('.dropdown')) {
+              dropdownContent.style.display = 'none';
+            }
+          });
+        }
       });
   </script>
 
-  <!-- === HEADER === -->
-  <header class="fade-in">
-    <h1>🧠 AnalystIt</h1>
-    <p>Sleek, practical tech tools that work — fast builds, smart automation, and clear visuals.</p>
-  </header>
-
   <!-- === MAIN CONTENT === -->
   <main class="container fade-in">
-    <h2>Core Services</h2>
-    <ul>
-      <li>⚙️ Automated workflows (Google Docs, Sheets, Calendar, Email)</li>
-      <li>🌐 Clean static websites & internal tools for service businesses</li>
-      <li>📈 Lightweight dashboards & performance tracking</li>
-      <li>📊 Custom spreadsheets & dynamic financial models</li>
-    </ul>
+    <header>
+      <h1>🧠 AnalystIt</h1>
+      <p>Sleek, practical tech tools that work — fast builds, smart automation, and clear visuals.</p>
+    </header>
 
-    <h2>Availability</h2>
-    <p class="highlight">Schedule or call and we can chat about your specific needs.</p>
+    <section>
+      <h2>Core Services</h2>
+      <ul>
+        <li>⚙️ Automated workflows (Google Docs, Sheets, Calendar, Email)</li>
+        <li>🌐 Clean static websites & internal tools for service businesses</li>
+        <li>📈 Lightweight dashboards & performance tracking</li>
+        <li>📊 Custom spreadsheets & dynamic financial models</li>
+      </ul>
+    </section>
 
-    <h2>Work With Me</h2>
-    <p>Freelance, retainer, or one-off projects — tailored for speed and clarity. Start simple. Scale smart.</p>
+    <section>
+      <h2>Availability</h2>
+      <p class="highlight">Schedule or call and we can chat about your specific needs.</p>
+    </section>
 
-    <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #444; width: 60%;" />
-
-    <!-- === CALL TO ACTION (FOOTER CTA) === -->
-    <div id="contact-section"></div>
-    <script>
-      fetch('contact.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('contact-section').innerHTML = data;
-        });
-    </script>
+    <section>
+      <h2>Work With Me</h2>
+      <p>Freelance, retainer, or one-off projects — tailored for speed and clarity. Start simple. Scale smart.</p>
+    </section>
   </main>
 
-  <footer class="footer">
-    &copy; 2025 AnalystIt by AnalystIt LLC. Built in Bend, Oregon.
+  <!-- === VISUAL BREAK === -->
+  <hr style="margin: 3rem auto 2rem auto; border: none; border-top: 1px solid #ccc; width: 60%;" />
+
+  <!-- === FOOTER CTA === -->
+  <div id="contact-section"></div>
+  <script>
+    fetch('contact.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('contact-section').innerHTML = data;
+      });
+  </script>
+
+  <!-- === FOOTER NOTE === -->
+  <footer>
+    &copy; 2025 HandyCrew4You / AnalystIt – Built in Bend, Oregon.
   </footer>
 </body>
 </html>
