@@ -1,23 +1,36 @@
 <!-- === NAVIGATION DROPDOWN === -->
-<div class="dropdown">
-  <button class="dropbtn">Services ▾</button>
-  <div id="dropdown-content" class="dropdown-content">
-    <a href="maintenance.html">🪜 Maintenance</a>
-    <a href="pressure.html">💦 Pressure Washing</a>
-    <a href="tree.html">🌳 Tree & Brush Work</a>
-    <a href="handyman.html">🛠️ Handyman</a>
-    <a href="index.html">🏠 Home</a>
-    <!-- HIDING Carpet CLenaing and Booking service for now
-    <a href="carpet.html">🧼 Carpet Cleaning</a> 
-    <a href="bookServiceTool.html">📅 Book a Service</a>  -->
+<nav>
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown()">Services ▾</button>
+    <div id="dropdown-content" class="dropdown-content">
+      <a href="maintenance.html">🪜 Maintenance</a>
+      <a href="pressure.html">💦 Pressure Washing</a>
+      <a href="tree.html">🌳 Tree & Brush Work</a>
+      <a href="handyman.html">🛠️ Handyman</a>
+      <a href="index.html">🏠 Home</a>
+    </div>
   </div>
-</div>
 
   <div class="nav-cta">
-    <a href="tel:5413204302" class="btn">📞 Call Now</a>
     <a href="mailto:HandyCrew4You.johnson@gmail.com" class="btn">📧 Email Us</a>
+    <a href="tel:5413204302" class="btn">📞 Call Now</a>
   </div>
 </nav>
+
+
+<script>
+  function toggleDropdown() {
+    const dropdown = document.getElementById("dropdown-content");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  }
+
+  window.addEventListener("click", function (e) {
+    if (!e.target.closest('.dropdown')) {
+      const dropdown = document.getElementById("dropdown-content");
+      if (dropdown) dropdown.style.display = "none";
+    }
+  });
+</script>
 
 <!-- == Old Version stricly for HTML deployment ==
 <script>
