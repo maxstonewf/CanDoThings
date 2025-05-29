@@ -147,8 +147,10 @@ footer {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 1rem auto;
   text-align: center;
+  z-index: 999;
 }
 
 .nav-button {
@@ -160,6 +162,7 @@ footer {
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .nav-button:hover {
@@ -169,6 +172,7 @@ footer {
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 110%;
   background-color: white;
   border: 1px solid #ccc;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
