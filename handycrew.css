@@ -180,6 +180,19 @@ footer {
   background-color: var(--soft-gray);
 }
 
+.nav-cta {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  background-color: #f0fdf4;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+
 @media (max-width: 768px) {
   .dropdown {
     flex-direction: column;
