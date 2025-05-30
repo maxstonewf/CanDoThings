@@ -256,6 +256,33 @@ nav.top-nav {
   flex-wrap: wrap;
 }
 
+/* === BUTTON STANDARDIZATION === */
+.dropbtn, .btn {
+  width: 180px;            /* Fixed width */
+  height: 48px;            /* Fixed height */
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--charcoal);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  line-height: 1.5;         /* Good vertical centering for text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropbtn:hover, .btn:hover {
+  background-color: var(--green);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  animation: pulse 0.6s ease-in-out;
+}
+
 
 @media (max-width: 768px) {
   .dropdown {
