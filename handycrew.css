@@ -228,8 +228,8 @@ nav.top-nav {
 .btn,
 .dropbtn,
 .cta-button {
-  width: 90px;                   /* ✅ Standard width */
-  height: 35px;                   /* ✅ Standard height */
+  width: 100px;                   /* ✅ Standard width */
+  height: 30px;                   /* ✅ Standard height */
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
@@ -237,7 +237,7 @@ nav.top-nav {
   background-color: var(--charcoal);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
   display: flex;
