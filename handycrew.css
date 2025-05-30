@@ -59,40 +59,6 @@ p {
   margin: 1.5rem auto;
 }
 
-/* === CTA BUTTONS (General Buttons) === */
-.btn,
-.cta-button,
-.dropbtn {
-  background-color: var(--charcoal);
-  color: white;
-  padding: 0.75rem 1.4rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  text-align: center;
-}
-
-.btn:hover,
-.cta-button:hover,
-.dropbtn:hover {
-  background-color: var(--green);
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  animation: pulse 0.6s ease-in-out;
-}
-
-/* === BUTTON HOVER PULSE === */
-@keyframes pulse {
-  0% { transform: scale(1.03); }
-  50% { transform: scale(1.06); }
-  100% { transform: scale(1.03); }
-}
 
 /* === FADE-IN EFFECT === */
 .fade-in {
@@ -259,33 +225,46 @@ nav.top-nav {
 }
 
 /* === BUTTON STANDARDIZATION (Header & Footer) === */
-.dropbtn, .btn {
-  width: 100px;                   /* ✅ Fixed width for all nav buttons */
-  height: 25px;                   /* ✅ Fixed height */
+.btn,
+.dropbtn,
+.cta-button {
+  width: 180px;                   /* ✅ Standard width */
+  height: 48px;                   /* ✅ Standard height */
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
-  border: none;
-  border-radius: 5px;
+  line-height: 1.5;               /* Vertical alignment of text */
   background-color: var(--charcoal);
   color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
   cursor: pointer;
-  line-height: 1.5;                /* Vertical alignment of text */
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.75rem 1.4rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.dropbtn:hover, .btn:hover {
+.btn:hover,
+.dropbtn:hover,
+.cta-button:hover {
   background-color: var(--green);
   transform: scale(1.03);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   animation: pulse 0.6s ease-in-out;
 }
 
-/* === RESPONSIVE (MOBILE) === */
+/* === BUTTON HOVER PULSE === */
+@keyframes pulse {
+  0% { transform: scale(1.03); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1.03); }
+}
+
+/* === RESPONSIVE (MOBILE) 
 @media (max-width: 768px) {
   .dropdown {
     flex-direction: column;
@@ -311,6 +290,8 @@ nav.top-nav {
     max-width: 300px;
   }
 }
+=== */
+
 
 /* === BLINK EFFECT (TBD Services) === */
 @keyframes blink {
