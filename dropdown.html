@@ -1,9 +1,10 @@
 <!-- === NAVIGATION SECTION === -->
 <nav class="top-nav">
   <div class="nav-group">
+    <!-- Services Dropdown -->
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown()">Services ▾</button>
-      <div id="dropdown-content" class="dropdown-content">
+      <button class="dropbtn" onclick="toggleDropdown('services-dropdown')">Services ▾</button>
+      <div id="services-dropdown" class="dropdown-content">
         <a href="maintenance.html">🪜 Maintenance</a>
         <a href="pressure.html">💦 Pressure Washing</a>
         <a href="tree.html">🌳 Tree & Brush Work</a>
@@ -12,42 +13,59 @@
       </div>
     </div>
 
-    <!-- Button links styled consistently -->
-    <a href="mailto:HandyCrew4You.johnson@gmail.com" class="btn">📧 Email Us</a>
-    <a href="tel:5413204302" class="btn">📞 Call Now</a>
+    <!-- Email Dropdown -->
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('email-dropdown')">📧 Email Us</button>
+      <div id="email-dropdown" class="dropdown-content">
+        <a href="mailto:HandyCrew4You.johnson@gmail.com">HandyCrew4You.johnson@gmail.com</a>
+      </div>
+    </div>
+
+    <!-- Call Dropdown -->
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('call-dropdown')">📞 Call Now</button>
+      <div id="call-dropdown" class="dropdown-content">
+        <a href="tel:5413204302">541-320-4302</a>
+      </div>
+    </div>
   </div>
 </nav>
 
 <!-- === DROPDOWN SCRIPT === -->
 <script>
-  const button = document.querySelector(".dropbtn");
-  const dropdown = document.getElementById("dropdown-content");
-  let dropdownOpen = false;
+  function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    const allDropdowns = document.querySelectorAll('.dropdown-content');
 
-  // Toggle dropdown on button click
-  button.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent immediate close
-    dropdown.style.display = dropdownOpen ? "none" : "block";
-    dropdownOpen = !dropdownOpen;
-  });
+    // Close all dropdowns first
+    allDropdowns.forEach(d => {
+      if (d.id !== id) d.style.display = 'none';
+    });
 
-  // Keep dropdown open on hover
-  dropdown.addEventListener("mouseenter", () => {
-    dropdown.style.display = "block";
-    dropdownOpen = true;
-  });
-
-  // Hide dropdown when mouse leaves (optional)
-  dropdown.addEventListener("mouseleave", () => {
-    dropdown.style.display = "none";
-    dropdownOpen = false;
-  });
+    // Toggle clicked dropdown
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  }
 
   // Close dropdown if clicking outside
-  window.addEventListener("click", () => {
-    if (dropdownOpen) {
-      dropdown.style.display = "none";
-      dropdownOpen = false;
+  window.addEventListener("click", (e) => {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown-content').forEach(d => {
+        d.style.display = 'none';
+      });
     }
+  });
+
+  // Optional: Keep dropdown open on hover
+  document.querySelectorAll('.dropdown').forEach(drop => {
+    const button = drop.querySelector('button');
+    const content = drop.querySelector('.dropdown-content');
+
+    content.addEventListener('mouseenter', () => {
+      content.style.display = 'block';
+    });
+
+    content.addEventListener('mouseleave', () => {
+      content.style.display = 'none';
+    });
   });
 </script>
