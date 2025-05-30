@@ -12,6 +12,7 @@
       </div>
     </div>
 
+    <!-- Button links styled consistently -->
     <a href="mailto:HandyCrew4You.johnson@gmail.com" class="btn">📧 Email Us</a>
     <a href="tel:5413204302" class="btn">📞 Call Now</a>
   </div>
@@ -23,26 +24,26 @@
   const dropdown = document.getElementById("dropdown-content");
   let dropdownOpen = false;
 
-  // Toggle on button click
+  // Toggle dropdown on button click
   button.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent closing immediately
+    e.stopPropagation(); // prevent immediate close
     dropdown.style.display = dropdownOpen ? "none" : "block";
     dropdownOpen = !dropdownOpen;
   });
 
-  // Keep open when hovering over dropdown
+  // Keep dropdown open on hover
   dropdown.addEventListener("mouseenter", () => {
     dropdown.style.display = "block";
     dropdownOpen = true;
   });
 
-  // Optional: hide on mouse leave (desktop only)
+  // Hide dropdown when mouse leaves (optional)
   dropdown.addEventListener("mouseleave", () => {
     dropdown.style.display = "none";
     dropdownOpen = false;
   });
 
-  // Close if clicked anywhere else
+  // Close dropdown if clicking outside
   window.addEventListener("click", () => {
     if (dropdownOpen) {
       dropdown.style.display = "none";
@@ -50,4 +51,3 @@
     }
   });
 </script>
-
