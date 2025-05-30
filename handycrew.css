@@ -264,7 +264,7 @@ nav.top-nav {
   100% { transform: scale(1.03); }
 }
 
-/* === RESPONSIVE (MOBILE) 
+/* === RESPONSIVE (MOBILE) === */
 @media (max-width: 768px) {
   .dropdown {
     flex-direction: column;
@@ -290,7 +290,7 @@ nav.top-nav {
     max-width: 300px;
   }
 }
-=== */
+
 
 
 /* === BLINK EFFECT (TBD Services) === */
