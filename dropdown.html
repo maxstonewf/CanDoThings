@@ -1,7 +1,6 @@
 <!-- === NAVIGATION SECTION === -->
 <nav class="top-nav">
   <div class="nav-group">
-    <!-- Services Dropdown -->
     <div class="dropdown">
       <button class="dropbtn" data-target="services-dropdown">Services ▾</button>
       <div id="services-dropdown" class="dropdown-content">
@@ -9,21 +8,19 @@
         <a href="pressure.html">💦 Pressure Washing</a>
         <a href="tree.html">🌳 Tree & Brush Work</a>
         <a href="handyman.html">🛠️ Handyman</a>
-        <a href="index.html">🏠 Home Page</a>
+        <a href="index.html">🏠 Home</a>
       </div>
     </div>
 
-    <!-- Email Dropdown -->
     <div class="dropdown">
-      <button class="dropbtn" data-target="email-dropdown">📧 Email</button>
+      <button class="dropbtn" data-target="email-dropdown">Email 📧</button>
       <div id="email-dropdown" class="dropdown-content">
         <a href="mailto:HandyCrew4You.johnson@gmail.com">HandyCrew4You.johnson@gmail.com</a>
       </div>
     </div>
 
-    <!-- Call Dropdown -->
     <div class="dropdown">
-      <button class="dropbtn" data-target="call-dropdown">📞 Call</button>
+      <button class="dropbtn" data-target="call-dropdown">Call 📞</button>
       <div id="call-dropdown" class="dropdown-content">
         <a href="tel:5413204302">541-320-4302</a>
       </div>
@@ -31,34 +28,38 @@
   </div>
 </nav>
 
-<!-- === DROPDOWN SCRIPT (Minimal, Works) 
+<!-- === DROPDOWN SCRIPT (✅ MAKE SURE IT IS AT THE BOTTOM!) === -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.dropbtn');
 
     buttons.forEach(button => {
-      const targetId = button.getAttribute('data-target');
-      const dropdown = document.getElementById(targetId);
-
       button.addEventListener('click', function (e) {
         e.stopPropagation();
 
-        // Close all dropdowns first
-        document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none');
+        const targetId = this.getAttribute('data-target');
+        const targetDropdown = document.getElementById(targetId);
 
-        // Toggle the clicked dropdown
-        if (dropdown.style.display === 'block') {
-          dropdown.style.display = 'none';
+        // Close all others
+        document.querySelectorAll('.dropdown-content').forEach(drop => {
+          if (drop !== targetDropdown) {
+            drop.style.display = 'none';
+          }
+        });
+
+        // Toggle this one
+        if (targetDropdown.style.display === 'block') {
+          targetDropdown.style.display = 'none';
         } else {
-          dropdown.style.display = 'block';
+          targetDropdown.style.display = 'block';
         }
       });
     });
 
-    // Close dropdown if clicking outside
     window.addEventListener('click', function () {
-      document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none');
+      document.querySelectorAll('.dropdown-content').forEach(drop => {
+        drop.style.display = 'none';
+      });
     });
   });
 </script>
-=== -->
