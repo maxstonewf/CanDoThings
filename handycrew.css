@@ -228,8 +228,8 @@ nav.top-nav {
 .btn,
 .dropbtn,
 .cta-button {
-  width: 85px;                   /* ✅ Standard width */
-  height: 25px;                   /* ✅ Standard height */
+  width: 90px;                   /* ✅ Standard width */
+  height: 35px;                   /* ✅ Standard height */
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
