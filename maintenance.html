@@ -10,38 +10,40 @@
 </head>
 <body>
   <!-- === NAVIGATION === -->
+  <!-- === NAVIGATION BAR === -->
   <nav id="nav-section"></nav>
-  <script>
-    fetch('dropdown.html')
-      .then(res => res.text())
-      .then(data => {
-        const nav = document.getElementById('nav-section');
-        nav.innerHTML = data;
+<script>
+fetch('dropdown.html')
+  .then(res => res.text())
+  .then(data => {
+    const nav = document.getElementById('nav-section');
+    nav.innerHTML = data;
 
-        const dropdownBtn = nav.querySelector('.dropdown');
-        const dropdownContent = nav.querySelector('#dropdown-content');
+    console.log('Nav Loaded', nav.querySelectorAll('.dropbtn'));  // ← ADD THIS
 
-        if (dropdownBtn && dropdownContent) {
-          dropdownBtn.addEventListener('click', () => {
-            dropdownContent.style.display =
-              dropdownContent.style.display === 'block' ? 'none' : 'block';
-          });
+    const buttons = nav.querySelectorAll('.dropbtn');
 
-          dropdownBtn.addEventListener('mouseleave', () => {
-            if (window.innerWidth > 600) {
-              dropdownContent.style.display = 'none';
-            }
-          });
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        const targetId = button.getAttribute('data-target');
+        const dropdown = document.getElementById(targetId);
 
-          document.addEventListener('click', function (event) {
-            if (!event.target.closest('.dropdown')) {
-              dropdownContent.style.display = 'none';
-            }
-          });
-        }
+        nav.querySelectorAll('.dropdown-content').forEach(d => {
+          if (d !== dropdown) {
+            d.style.display = 'none';
+          }
+        });
+
+        dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
       });
+    });
 
-  </script>
+    window.addEventListener('click', () => {
+      nav.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none');
+    });
+  });
+</script>
 
   <!-- === HEADER === -->
   <header class="container fade-in">
