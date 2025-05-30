@@ -57,13 +57,16 @@
     });
   });
 
-  // Optional hover open/close on desktop
-  document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-    dropdown.addEventListener('mouseenter', () => {
-      dropdown.style.display = 'block';
+  // Optional: hover keeps dropdown open (desktop)
+  document.querySelectorAll('.dropdown').forEach(drop => {
+    const btn = drop.querySelector('.dropbtn');
+    const menu = drop.querySelector('.dropdown-content');
+
+    drop.addEventListener('mouseenter', () => {
+      menu.style.display = 'block';
     });
-    dropdown.addEventListener('mouseleave', () => {
-      dropdown.style.display = 'none';
+    drop.addEventListener('mouseleave', () => {
+      menu.style.display = 'none';
     });
   });
 </script>
