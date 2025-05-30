@@ -260,8 +260,8 @@ nav.top-nav {
 
 /* === BUTTON STANDARDIZATION (Header & Footer) === */
 .dropbtn, .btn {
-  width: 180px;                   /* ✅ Fixed width for all nav buttons */
-  height: 48px;                   /* ✅ Fixed height */
+  width: 100px;                   /* ✅ Fixed width for all nav buttons */
+  height: 25px;                   /* ✅ Fixed height */
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
