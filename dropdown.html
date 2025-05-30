@@ -33,40 +33,25 @@
 
 <!-- === DROPDOWN SCRIPT === -->
 <script>
-  // Handle toggling dropdowns
-  document.querySelectorAll('.dropbtn').forEach(button => {
-    button.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const targetId = button.getAttribute('data-target');
-      const dropdown = document.getElementById(targetId);
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.dropbtn');
+    const dropdowns = document.querySelectorAll('.dropdown-content');
 
-      // Close all other dropdowns
-      document.querySelectorAll('.dropdown-content').forEach(d => {
-        if (d !== dropdown) d.style.display = 'none';
+    buttons.forEach(button => {
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const targetId = this.getAttribute('data-target');
+        const targetDropdown = document.getElementById(targetId);
+
+        // Toggle only this dropdown
+        const isOpen = targetDropdown.style.display === 'block';
+        dropdowns.forEach(drop => drop.style.display = 'none'); // close all first
+        targetDropdown.style.display = isOpen ? 'none' : 'block'; // toggle current
       });
-
-      // Toggle this one
-      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
     });
-  });
 
-  // Close all dropdowns when clicking outside
-  window.addEventListener('click', () => {
-    document.querySelectorAll('.dropdown-content').forEach(d => {
-      d.style.display = 'none';
-    });
-  });
-
-  // Optional: hover keeps dropdown open (desktop)
-  document.querySelectorAll('.dropdown').forEach(drop => {
-    const btn = drop.querySelector('.dropbtn');
-    const menu = drop.querySelector('.dropdown-content');
-
-    drop.addEventListener('mouseenter', () => {
-      menu.style.display = 'block';
-    });
-    drop.addEventListener('mouseleave', () => {
-      menu.style.display = 'none';
+    window.addEventListener('click', function () {
+      dropdowns.forEach(drop => drop.style.display = 'none');
     });
   });
 </script>
