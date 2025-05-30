@@ -1,6 +1,7 @@
 <!-- === NAVIGATION SECTION === -->
 <nav class="top-nav">
   <div class="nav-group">
+    <!-- Services Dropdown -->
     <div class="dropdown">
       <button class="dropbtn" data-target="services-dropdown">Services ▾</button>
       <div id="services-dropdown" class="dropdown-content">
@@ -8,7 +9,7 @@
         <a href="pressure.html">💦 Pressure Washing</a>
         <a href="tree.html">🌳 Tree & Brush Work</a>
         <a href="handyman.html">🛠️ Handyman</a>
-        <a href="index.html">🏠 Home</a>
+        <a href="index.html">🏠 Home Page</a>
       </div>
     </div>
 
@@ -30,27 +31,33 @@
   </div>
 </nav>
 
-<!-- === DROPDOWN SCRIPT === -->
+<!-- === DROPDOWN SCRIPT (Minimal, Works) === -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.dropbtn');
-    const dropdowns = document.querySelectorAll('.dropdown-content');
 
     buttons.forEach(button => {
+      const targetId = button.getAttribute('data-target');
+      const dropdown = document.getElementById(targetId);
+
       button.addEventListener('click', function (e) {
         e.stopPropagation();
-        const targetId = this.getAttribute('data-target');
-        const targetDropdown = document.getElementById(targetId);
 
-        // Toggle only this dropdown
-        const isOpen = targetDropdown.style.display === 'block';
-        dropdowns.forEach(drop => drop.style.display = 'none'); // close all first
-        targetDropdown.style.display = isOpen ? 'none' : 'block'; // toggle current
+        // Close all dropdowns first
+        document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none');
+
+        // Toggle the clicked dropdown
+        if (dropdown.style.display === 'block') {
+          dropdown.style.display = 'none';
+        } else {
+          dropdown.style.display = 'block';
+        }
       });
     });
 
+    // Close dropdown if clicking outside
     window.addEventListener('click', function () {
-      dropdowns.forEach(drop => drop.style.display = 'none');
+      document.querySelectorAll('.dropdown-content').forEach(d => d.style.display = 'none');
     });
   });
 </script>
