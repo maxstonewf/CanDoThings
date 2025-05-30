@@ -3,7 +3,7 @@
   <div class="nav-group">
     <!-- Services Dropdown -->
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('services-dropdown')">Services ▾</button>
+      <button class="dropbtn" data-target="services-dropdown">Services ▾</button>
       <div id="services-dropdown" class="dropdown-content">
         <a href="maintenance.html">🪜 Maintenance</a>
         <a href="pressure.html">💦 Pressure Washing</a>
@@ -15,7 +15,7 @@
 
     <!-- Email Dropdown -->
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('email-dropdown')">📧 Email Us</button>
+      <button class="dropbtn" data-target="email-dropdown">📧 Email Us</button>
       <div id="email-dropdown" class="dropdown-content">
         <a href="mailto:HandyCrew4You.johnson@gmail.com">HandyCrew4You.johnson@gmail.com</a>
       </div>
@@ -23,7 +23,7 @@
 
     <!-- Call Dropdown -->
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('call-dropdown')">📞 Call Now</button>
+      <button class="dropbtn" data-target="call-dropdown">📞 Call Now</button>
       <div id="call-dropdown" class="dropdown-content">
         <a href="tel:5413204302">541-320-4302</a>
       </div>
@@ -33,39 +33,37 @@
 
 <!-- === DROPDOWN SCRIPT === -->
 <script>
-  function toggleDropdown(id) {
-    const dropdown = document.getElementById(id);
-    const allDropdowns = document.querySelectorAll('.dropdown-content');
+  // Handle toggling dropdowns
+  document.querySelectorAll('.dropbtn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const targetId = button.getAttribute('data-target');
+      const dropdown = document.getElementById(targetId);
 
-    // Close all dropdowns first
-    allDropdowns.forEach(d => {
-      if (d.id !== id) d.style.display = 'none';
-    });
-
-    // Toggle clicked dropdown
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-  }
-
-  // Close dropdown if clicking outside
-  window.addEventListener("click", (e) => {
-    if (!e.target.closest('.dropdown')) {
+      // Close all other dropdowns
       document.querySelectorAll('.dropdown-content').forEach(d => {
-        d.style.display = 'none';
+        if (d !== dropdown) d.style.display = 'none';
       });
-    }
+
+      // Toggle this one
+      dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+    });
   });
 
-  // Optional: Keep dropdown open on hover
-  document.querySelectorAll('.dropdown').forEach(drop => {
-    const button = drop.querySelector('button');
-    const content = drop.querySelector('.dropdown-content');
-
-    content.addEventListener('mouseenter', () => {
-      content.style.display = 'block';
+  // Close all dropdowns when clicking outside
+  window.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-content').forEach(d => {
+      d.style.display = 'none';
     });
+  });
 
-    content.addEventListener('mouseleave', () => {
-      content.style.display = 'none';
+  // Optional hover open/close on desktop
+  document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', () => {
+      dropdown.style.display = 'block';
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      dropdown.style.display = 'none';
     });
   });
 </script>
